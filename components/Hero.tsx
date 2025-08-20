@@ -30,7 +30,7 @@ export default function Hero(){
           <a href="#contact" className="rounded-2xl bg-emerald-400 text-slate-900 font-semibold px-5 py-3 shadow-soft hover:bg-emerald-300">{t(lang,'hero.primary')}</a>
           <a href="#finame" className="rounded-2xl bg-white/10 ring-1 ring-white/20 px-5 py-3 font-medium hover:bg-white/15">{t(lang,'hero.secondary')}</a>
         </div>
-        <div className="mt-10 grid grid-cols-3 gap-6 text-left">
+        <div className="mt-10 grid grid-cols-3 gap-6 text-center">
           <div className="glass rounded-2xl p-4">
             <div className="text-3xl font-extrabold" id="counterClients">500+</div>
             <div className="text-sm text-slate-300">{t(lang,'hero.stat1')}</div>
