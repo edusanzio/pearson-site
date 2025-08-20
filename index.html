@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pearson Consultoria — FINAME & BNDES Specialists</title>
+  <meta name="description" content="Pearson Consultoria — líder em credenciamento FINAME e projetos com BNDES. Especialistas em FINAME para fabricantes nacionais e estrangeiros." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{ --brand:#0f172a; --accent:#c1121f; --gold:#d4af37 }
+    html{scroll-behavior:smooth}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif}
+    /* YouTube background */
+    .hero-bg{position:absolute;inset:0;overflow:hidden;z-index:-1}
+    .hero-bg iframe{position:absolute;top:50%;left:50%;width:120vw;height:120vh;transform:translate(-50%,-50%);pointer-events:none;filter:saturate(105%)}
+    .glass{backdrop-filter:saturate(140%) blur(8px);background:rgba(255,255,255,.08)}
+    .shadow-soft{box-shadow:0 10px 25px rgba(0,0,0,.12)}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.06));border:1px solid rgba(255,255,255,.12)}
+    .fade-up{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+    .fade-up.appear{opacity:1;transform:none}
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100">
+  <!-- Header -->
+  <header class="sticky top-0 z-40 backdrop-blur bg-slate-950/60 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-3 group">
+        <span class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 ring-1 ring-white/20">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5 text-emerald-300">
+            <path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2Zm.75 5a.75.75 0 0 1 .75.75V11h3.25a.75.75 0 0 1 0 1.5H13.5v3.25a.75.75 0 0 1-1.5 0V12.5H8.75a.75.75 0 0 1 0-1.5H12V7.75A.75.75 0 0 1 12.75 7Z"/>
+          </svg>
+        </span>
+        <div class="leading-tight">
+          <span class="block font-extrabold tracking-tight">Pearson Consultoria</span>
+          <span class="block text-xs text-slate-300">FINAME & BNDES Specialists</span>
+        </div>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#about" class="hover:text-white/90" data-i18n="nav.about">A Empresa</a>
+        <a href="#finame" class="hover:text-white/90" data-i18n="nav.finame">FINAME & BNDES</a>
+        <a href="#services" class="hover:text-white/90" data-i18n="nav.services">Serviços</a>
+        <a href="#cases" class="hover:text-white/90" data-i18n="nav.cases">Cases</a>
+        <a href="#contact" class="hover:text-white/90" data-i18n="nav.contact">Contato</a>
+      </nav>
+      <div class="flex items-center gap-2">
+        <div class="relative">
+          <select id="lang" class="appearance-none bg-white/10 ring-1 ring-white/20 text-white text-xs rounded-lg px-3 py-2 pr-8 cursor-pointer">
+            <option value="pt">PT-BR</option>
+            <option value="en">EN</option>
+            <option value="zh">中文</option>
+          </select>
+          <svg class="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-white/70" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"/></svg>
+        </div>
+        <a href="https://wa.me/5521997805858" target="_blank" class="inline-flex items-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold bg-emerald-500 hover:bg-emerald-400 text-slate-900 shadow-soft">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.5 11.5 0 003.2 18.92L2 22l3.19-1.17A11.5 11.5 0 1020.52 3.48zm-8 17.02a9.53 9.53 0 01-4.85-1.33l-.35-.21-2.88 1.05.99-2.98-.23-.37a9.52 9.52 0 1117.72-4.82 9.52 9.52 0 01-9.4 8.66zm5.36-7.19c-.29-.15-1.73-.85-2-.95s-.47-.15-.67.15-.77.95-.94 1.14-.35.22-.64.07a7.77 7.77 0 01-2.29-1.41 8.59 8.59 0 01-1.58-1.96c-.17-.29 0-.45.13-.6.13-.15.29-.37.44-.56.15-.19.2-.33.3-.56.1-.22.05-.41-.02-.56-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.19 0-.49.07-.75.37s-.98.96-.98 2.34 1.01 2.72 1.15 2.9c.15.19 1.98 3.03 4.8 4.25.67.29 1.19.46 1.6.59.67.21 1.28.18 1.76.11.54-.08 1.73-.71 1.98-1.39.25-.67.25-1.25.17-1.39-.07-.15-.26-.22-.55-.37z"/></svg>
+          <span data-i18n="cta.whats">Falar no WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="relative min-h-[86vh] grid place-items-center overflow-hidden">
+    <div class="hero-bg">
+      <iframe class="opacity-70" src="https://www.youtube.com/embed/zv9ivnKmb5c?autoplay=1&mute=1&controls=0&loop=1&playlist=zv9ivnKmb5c&modestbranding=1&playsinline=1" title="Pearson Consultoria — video hero" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="absolute inset-0 bg-gradient-to-b from-slate-950/30 via-slate-950/60 to-slate-950"></div>
+    <div class="relative z-10 max-w-5xl mx-auto px-6 py-24 text-center">
+      <h1 class="text-4xl md:text-6xl font-black tracking-tight leading-tight">
+        <span data-i18n="hero.title1">FINAME sem mistério.</span>
+        <br>
+        <span class="text-emerald-300" data-i18n="hero.title2">Do diagnóstico à aprovação.</span>
+      </h1>
+      <p class="mt-5 text-lg md:text-xl text-slate-200/90" data-i18n="hero.lead">A maior consultoria FINAME do Brasil para fabricantes: nós conduzimos todo o processo no BNDES e você foca nas vendas.</p>
+      <div class="mt-8 flex items-center justify-center gap-3">
+        <a href="#contact" class="rounded-2xl bg-emerald-400 text-slate-900 font-semibold px-5 py-3 shadow-soft hover:bg-emerald-300" data-i18n="hero.primary">Fale com um consultor</a>
+        <a href="#finame" class="rounded-2xl bg-white/10 ring-1 ring-white/20 px-5 py-3 font-medium hover:bg-white/15" data-i18n="hero.secondary">Entenda FINAME & BNDES</a>
+      </div>
+      <div class="mt-10 grid grid-cols-3 gap-6 text-left">
+        <div class="glass rounded-2xl p-4">
+          <div class="text-3xl font-extrabold" id="counterClients">500+</div>
+          <div class="text-sm text-slate-300" data-i18n="hero.stat1">clientes atendidos</div>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <div class="text-3xl font-extrabold">10+</div>
+          <div class="text-sm text-slate-300" data-i18n="hero.stat2">anos de experiência</div>
+        </div>
+        <div class="glass rounded-2xl p-4">
+          <div class="text-3xl font-extrabold">#1</div>
+          <div class="text-sm text-slate-300" data-i18n="hero.stat3">em credenciamento FINAME</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="fade-up">
+          <h2 class="text-3xl md:text-4xl font-extrabold" data-i18n="about.title">Quem somos</h2>
+          <p class="mt-4 text-slate-300" data-i18n="about.p1">Somos especialistas em credenciar máquinas, equipamentos e sistemas no FINAME. Nossa equipe de engenheiros domina os critérios técnicos do BNDES e conduz todo o projeto de ponta a ponta.</p>
+          <p class="mt-3 text-slate-300" data-i18n="about.p2">Ajudamos fabricantes brasileiros e estrangeiros a vender com as melhores condições de financiamento do país, acelerando receita e aumentando competitividade.</p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <span class="text-xs rounded-full border border-white/20 px-3 py-1" data-i18n="about.tag1">Atendimento 100% personalizado</span>
+            <span class="text-xs rounded-full border border-white/20 px-3 py-1" data-i18n="about.tag2">Profundidade técnica</span>
+            <span class="text-xs rounded-full border border-white/20 px-3 py-1" data-i18n="about.tag3">Ponte estratégica com o BNDES</span>
+          </div>
+        </div>
+        <div class="fade-up">
+          <div class="rounded-3xl card p-6">
+            <div class="grid sm:grid-cols-2 gap-6">
+              <div>
+                <h3 class="text-xl font-bold" data-i18n="about.high1.t">O que entregamos</h3>
+                <ul class="mt-3 space-y-2 text-slate-300 list-disc list-inside">
+                  <li data-i18n="about.high1.i1">Diagnóstico de elegibilidade</li>
+                  <li data-i18n="about.high1.i2">Estratégia de credenciamento</li>
+                  <li data-i18n="about.high1.i3">Gestão documental completa</li>
+                  <li data-i18n="about.high1.i4">Submissão e acompanhamento no BNDES</li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="text-xl font-bold" data-i18n="about.high2.t">Resultados para você</h3>
+                <ul class="mt-3 space-y-2 text-slate-300 list-disc list-inside">
+                  <li data-i18n="about.high2.i1">Acesso ao FINAME</li>
+                  <li data-i18n="about.high2.i2">Mais vendas e credibilidade</li>
+                  <li data-i18n="about.high2.i3">Menos burocracia e tempo ganho</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAME & BNDES -->
+  <section id="finame" class="py-24 bg-slate-900/60 border-y border-white/10">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-12">
+        <div class="fade-up">
+          <h2 class="text-3xl md:text-4xl font-extrabold" data-i18n="finame.title">O que é FINAME e o que é o BNDES</h2>
+          <p class="mt-4 text-slate-300" data-i18n="finame.p1">FINAME é a linha de financiamento do BNDES para aquisição de máquinas e equipamentos de fabricação brasileira. Oferece taxas competitivas e prazos estendidos para alavancar a industrialização.</p>
+          <p class="mt-3 text-slate-300" data-i18n="finame.p2">BNDES é o Banco Nacional de Desenvolvimento Econômico e Social. Ao credenciar seus produtos no FINAME, você permite que seus clientes comprem com as melhores condições de crédito do país.</p>
+          <div class="mt-6 grid sm:grid-cols-2 gap-4">
+            <div class="rounded-2xl card p-5">
+              <h3 class="font-bold" data-i18n="finame.how.t">Como funciona</h3>
+              <p class="mt-2 text-sm text-slate-300" data-i18n="finame.how.d">O fabricante credencia produtos no FINAME. O cliente compra e financia via instituição credenciada ao BNDES, com juros reduzidos e prazos maiores.</p>
+            </div>
+            <div class="rounded-2xl card p-5">
+              <h3 class="font-bold" data-i18n="finame.benefits.t">Benefícios</h3>
+              <ul class="mt-2 text-sm text-slate-300 list-disc list-inside">
+                <li data-i18n="finame.benefits.i1">Vantagem competitiva</li>
+                <li data-i18n="finame.benefits.i2">Mais confiança e credibilidade</li>
+                <li data-i18n="finame.benefits.i3">Prova de conformidade técnica</li>
+                <li data-i18n="finame.benefits.i4">Ampliação da base de clientes</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="fade-up">
+          <h3 class="text-xl font-bold" data-i18n="finame.steps.t">Como a Pearson conduz seu projeto</h3>
+          <ol class="mt-4 space-y-4">
+            <li class="rounded-2xl card p-4">
+              <div class="font-semibold" data-i18n="finame.steps.i1.t">1) Constituição da empresa no Brasil</div>
+              <div class="text-slate-300 text-sm mt-1" data-i18n="finame.steps.i1.d">Abertura de CNPJ, registros estaduais/municipais e conta bancária para operações e financiamento.</div>
+            </li>
+            <li class="rounded-2xl card p-4">
+              <div class="font-semibold" data-i18n="finame.steps.i2.t">2) Planejamento e desenvolvimento do projeto</div>
+              <div class="text-slate-300 text-sm mt-1" data-i18n="finame.steps.i2.d">Definição de escopo, maquinário e adequações do processo produtivo/galpão.</div>
+            </li>
+            <li class="rounded-2xl card p-4">
+              <div class="font-semibold" data-i18n="finame.steps.i3.t">3) Credenciamento no BNDES (empresa e produtos)</div>
+              <div class="text-slate-300 text-sm mt-1" data-i18n="finame.steps.i3.d">Verificação de elegibilidade, gestão documental e submissão até a aprovação.</div>
+            </li>
+            <li class="rounded-2xl card p-4">
+              <div class="font-semibold" data-i18n="finame.steps.i4.t">4) Adequação de galpão & aquisição de equipamentos</div>
+              <div class="text-slate-300 text-sm mt-1" data-i18n="finame.steps.i4.d">Acompanhamento de obras, compras e instalação conforme padrões do BNDES.</div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="fade-up">
+        <h2 class="text-3xl md:text-4xl font-extrabold" data-i18n="services.title">Serviços</h2>
+        <p class="mt-3 text-slate-300" data-i18n="services.lead">Consultoria ponta a ponta para você vender com FINAME e ampliar margens.</p>
+      </div>
+      <div class="mt-10 grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+        <div class="rounded-3xl card p-6 fade-up">
+          <div class="text-lg font-bold" data-i18n="services.s1.t">Credenciamento FINAME</div>
+          <p class="mt-2 text-sm text-slate-300" data-i18n="services.s1.d">Análise técnica e submissão completa da documentação ao BNDES até a aprovação.</p>
+        </div>
+        <div class="rounded-3xl card p-6 fade-up">
+          <div class="text-lg font-bold" data-i18n="services.s2.t">Inclusão em Linha Específica</div>
+          <p class="mt-2 text-sm text-slate-300" data-i18n="services.s2.d">Vinculação de produto já credenciado a linhas específicas de financiamento.</p>
+        </div>
+        <div class="rounded-3xl card p-6 fade-up">
+          <div class="text-lg font-bold" data-i18n="services.s3.t">Cartão BNDES</div>
+          <p class="mt-2 text-sm text-slate-300" data-i18n="services.s3.d">Credenciamento e habilitação para vendas com cartão BNDES.</p>
+        </div>
+        <div class="rounded-3xl card p-6 fade-up">
+          <div class="text-lg font-bold" data-i18n="services.s4.t">Consultorias pontuais</div>
+          <p class="mt-2 text-sm text-slate-300" data-i18n="services.s4.d">Nacionalização de componentes, instalação de fábricas e projetos sob demanda.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cases & Testimonials -->
+  <section id="cases" class="py-24 bg-slate-900/60 border-y border-white/10">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="fade-up">
+        <h2 class="text-3xl md:text-4xl font-extrabold" data-i18n="cases.title">Casos de sucesso & Depoimentos</h2>
+        <p class="mt-3 text-slate-300" data-i18n="cases.lead">Parcerias industriais com resultados concretos.</p>
+      </div>
+      <div class="mt-10 grid md:grid-cols-2 gap-6">
+        <article class="rounded-3xl card p-6 fade-up">
+          <h3 class="text-xl font-bold">Trina Solar</h3>
+          <p class="mt-2 text-slate-300" data-i18n="cases.trina">Fábrica em Salvador/BA com produtos credenciados no FINAME; suporte de ponta a ponta, inclusive seminário técnico para as equipes.</p>
+        </article>
+        <article class="rounded-3xl card p-6 fade-up">
+          <h3 class="text-xl font-bold">Arctech Solar</h3>
+          <p class="mt-2 text-slate-300" data-i18n="cases.arctech">Construção da fábrica em Montes Claros/MG e finalização da segunda unidade em Camaçari/BA, com aderência completa ao FINAME.</p>
+        </article>
+        <article class="rounded-3xl card p-6 fade-up">
+          <h3 class="text-xl font-bold">CRRC — Metrô de São Paulo</h3>
+          <p class="mt-2 text-slate-300" data-i18n="cases.crrc">Atuação como ponte estratégica entre BNDES e CRRC, viabilizando o processo com reuniões de alto nível e clareza técnica.</p>
+        </article>
+        <article class="rounded-3xl card p-6 fade-up">
+          <h3 class="text-xl font-bold" data-i18n="cases.testiTitle">Depoimentos recentes</h3>
+          <ul class="mt-2 space-y-2 text-slate-300 text-sm list-disc list-inside">
+            <li data-i18n="cases.testi1">ZUIKO (Japão): “A consultoria foi crítica para a aprovação no FINAME; suporte profissional e tranquilidade em todo o processo.”</li>
+            <li data-i18n="cases.testi2">ARTAMA: “Após tentativas sem sucesso, com a Pearson obtivemos os códigos FINAME rapidamente e com acompanhamento próximo.”</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-24">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-2 gap-12 items-start">
+        <div class="fade-up">
+          <h2 class="text-3xl md:text-4xl font-extrabold" data-i18n="contact.title">Vamos credenciar seus produtos?</h2>
+          <p class="mt-3 text-slate-300" data-i18n="contact.lead">Fale com nossa equipe técnica para avaliar a elegibilidade e iniciar seu projeto.</p>
+          <div class="mt-6 space-y-3 text-slate-200">
+            <div><span class="font-semibold">E-mail:</span> <a class="hover:underline" href="mailto:contato@pearsonconsultoria.com.br">contato@pearsonconsultoria.com.br</a></div>
+            <div><span class="font-semibold" data-i18n="contact.phone">Telefones:</span> <a class="hover:underline" href="tel:+552136785972">+55 21 3678-5972</a> · <a class="hover:underline" href="tel:+5521997805858">+55 21 99780-5858</a></div>
+            <div><span class="font-semibold" data-i18n="contact.city">Rio de Janeiro — Brasil</span></div>
+          </div>
+          <div class="mt-6 flex gap-3">
+            <a href="https://wa.me/5521997805858" target="_blank" class="rounded-2xl bg-emerald-400 text-slate-900 font-semibold px-5 py-3 shadow-soft hover:bg-emerald-300" data-i18n="contact.whats">Falar no WhatsApp</a>
+            <a href="mailto:contato@pearsonconsultoria.com.br?subject=Projeto%20FINAME%20-%20Pearson%20Consultoria" class="rounded-2xl bg-white/10 ring-1 ring-white/20 px-5 py-3 font-medium hover:bg-white/15" data-i18n="contact.email">Enviar e-mail</a>
+          </div>
+        </div>
+        <form class="fade-up rounded-3xl card p-6" onsubmit="event.preventDefault(); openMailer();">
+          <h3 class="text-xl font-bold" data-i18n="contact.form.title">Conte sobre sua empresa</h3>
+          <div class="mt-4 grid gap-4">
+            <label class="block">
+              <span class="text-sm text-slate-300" data-i18n="contact.form.name">Seu nome</span>
+              <input id="fName" required class="mt-1 w-full rounded-xl bg-white/10 ring-1 ring-white/20 px-3 py-2"/>
+            </label>
+            <label class="block">
+              <span class="text-sm text-slate-300" data-i18n="contact.form.company">Empresa</span>
+              <input id="fCompany" required class="mt-1 w-full rounded-xl bg-white/10 ring-1 ring-white/20 px-3 py-2"/>
+            </label>
+            <label class="block">
+              <span class="text-sm text-slate-300" data-i18n="contact.form.email">E-mail</span>
+              <input id="fEmail" type="email" required class="mt-1 w-full rounded-xl bg-white/10 ring-1 ring-white/20 px-3 py-2"/>
+            </label>
+            <label class="block">
+              <span class="text-sm text-slate-300" data-i18n="contact.form.message">Mensagem</span>
+              <textarea id="fMsg" rows="4" class="mt-1 w-full rounded-xl bg-white/10 ring-1 ring-white/20 px-3 py-2"></textarea>
+            </label>
+            <button class="rounded-2xl bg-emerald-400 text-slate-900 font-semibold px-5 py-3 shadow-soft hover:bg-emerald-300" data-i18n="contact.form.cta">Enviar</button>
+          </div>
+          <p class="mt-3 text-xs text-slate-400" data-i18n="contact.disclaimer">Ao enviar, abriremos um e-mail no seu cliente de e-mail padrão com os dados preenchidos.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-10 border-t border-white/10">
+    <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div>
+        <div class="font-extrabold">Pearson Consultoria</div>
+        <div class="text-sm text-slate-400">© <span id="year"></span> Pearson Consultoria — Todos os direitos reservados.</div>
+      </div>
+      <div class="text-sm text-slate-300">
+        <a class="hover:underline" href="https://www.pearsonconsultoria.com.br/" target="_blank" data-i18n="footer.site">Site atual</a>
+        <span class="mx-2">·</span>
+        <a class="hover:underline" href="#finame" data-i18n="footer.learn">Saiba mais sobre FINAME</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // --- Content dictionary (PT/EN/ZH) ---
+    const DICT = {
+      pt: {
+        nav:{about:"A Empresa",finame:"FINAME & BNDES",services:"Serviços",cases:"Cases",contact:"Contato"},
+        hero:{title1:"FINAME sem mistério.",title2:"Do diagnóstico à aprovação.",lead:"A maior consultoria FINAME do Brasil para fabricantes: nós conduzimos todo o processo no BNDES e você foca nas vendas.",primary:"Fale com um consultor",secondary:"Entenda FINAME & BNDES",stat1:"clientes atendidos",stat2:"anos de experiência",stat3:"em credenciamento FINAME"},
+        cta:{whats:"Falar no WhatsApp"},
+        about:{title:"Quem somos",p1:"Somos especialistas em credenciar máquinas, equipamentos e sistemas no FINAME. Nossa equipe de engenheiros domina os critérios técnicos do BNDES e conduz todo o projeto de ponta a ponta.",p2:"Ajudamos fabricantes brasileiros e estrangeiros a vender com as melhores condições de financiamento do país, acelerando receita e aumentando competitividade.",tag1:"Atendimento 100% personalizado",tag2:"Profundidade técnica",tag3:"Ponte estratégica com o BNDES",high1:{t:"O que entregamos",i1:"Diagnóstico de elegibilidade",i2:"Estratégia de credenciamento",i3:"Gestão documental completa",i4:"Submissão e acompanhamento no BNDES"},high2:{t:"Resultados para você",i1:"Acesso ao FINAME",i2:"Mais vendas e credibilidade",i3:"Menos burocracia e tempo ganho"}},
+        finame:{title:"O que é FINAME e o que é o BNDES",p1:"FINAME é a linha de financiamento do BNDES para aquisição de máquinas e equipamentos de fabricação brasileira. Oferece taxas competitivas e prazos estendidos para alavancar a industrialização.",p2:"BNDES é o Banco Nacional de Desenvolvimento Econômico e Social. Ao credenciar seus produtos no FINAME, você permite que seus clientes comprem com as melhores condições de crédito do país.",how:{t:"Como funciona",d:"O fabricante credencia produtos no FINAME. O cliente compra e financia via instituição credenciada ao BNDES, com juros reduzidos e prazos maiores."},benefits:{t:"Benefícios",i1:"Vantagem competitiva",i2:"Mais confiança e credibilidade",i3:"Prova de conformidade técnica",i4:"Ampliação da base de clientes"},steps:{t:"Como a Pearson conduz seu projeto",i1:{t:"1) Constituição da empresa no Brasil",d:"Abertura de CNPJ, registros estaduais/municipais e conta bancária para operações e financiamento."},i2:{t:"2) Planejamento e desenvolvimento do projeto",d:"Definição de escopo, maquinário e adequações do processo produtivo/galpão."},i3:{t:"3) Credenciamento no BNDES (empresa e produtos)",d:"Verificação de elegibilidade, gestão documental e submissão até a aprovação."},i4:{t:"4) Adequação de galpão & aquisição de equipamentos",d:"Acompanhamento de obras, compras e instalação conforme padrões do BNDES."}}},
+        services:{title:"Serviços",lead:"Consultoria ponta a ponta para você vender com FINAME e ampliar margens.",s1:{t:"Credenciamento FINAME",d:"Análise técnica e submissão completa da documentação ao BNDES até a aprovação."},s2:{t:"Inclusão em Linha Específica",d:"Vinculação de produto já credenciado a linhas específicas de financiamento."},s3:{t:"Cartão BNDES",d:"Credenciamento e habilitação para vendas com cartão BNDES."},s4:{t:"Consultorias pontuais",d:"Nacionalização de componentes, instalação de fábricas e projetos sob demanda."}},
+        cases:{title:"Casos de sucesso & Depoimentos",lead:"Parcerias industriais com resultados concretos.",trina:"Fábrica em Salvador/BA com produtos credenciados no FINAME; suporte de ponta a ponta, inclusive seminário técnico para as equipes.",arctech:"Construção da fábrica em Montes Claros/MG e finalização da segunda unidade em Camaçari/BA, com aderência completa ao FINAME.",crrc:"Atuação como ponte estratégica entre BNDES e CRRC, viabilizando o processo com reuniões de alto nível e clareza técnica.",testiTitle:"Depoimentos recentes",testi1:"ZUIKO (Japão): “A consultoria foi crítica para a aprovação no FINAME; suporte profissional e tranquilidade em todo o processo.”",testi2:"ARTAMA: “Após tentativas sem sucesso, com a Pearson obtivemos os códigos FINAME rapidamente e com acompanhamento próximo.”"},
+        contact:{title:"Vamos credenciar seus produtos?",lead:"Fale com nossa equipe técnica para avaliar a elegibilidade e iniciar seu projeto.",phone:"Telefones:",city:"Rio de Janeiro — Brasil",whats:"Falar no WhatsApp",email:"Enviar e-mail",form:{title:"Conte sobre sua empresa",name:"Seu nome",company:"Empresa",email:"E-mail",message:"Mensagem",cta:"Enviar"},disclaimer:"Ao enviar, abriremos um e-mail no seu cliente de e-mail padrão com os dados preenchidos."},
+        footer:{site:"Site atual",learn:"Saiba mais sobre FINAME"}
+      },
+      en: {
+        nav:{about:"About",finame:"FINAME & BNDES",services:"Services",cases:"Case Studies",contact:"Contact"},
+        hero:{title1:"FINAME made simple.",title2:"From assessment to approval.",lead:"Brazil’s leading FINAME consultancy for manufacturers: we run the BNDES process so you can focus on sales.",primary:"Talk to a consultant",secondary:"Understand FINAME & BNDES",stat1:"clients served",stat2:"years of experience",stat3:"in FINAME accreditation"},
+        cta:{whats:"Chat on WhatsApp"},
+        about:{title:"Who we are",p1:"We are specialists in accrediting machines, equipment and systems under FINAME. Our engineering team masters BNDES technical criteria and manages end‑to‑end projects.",p2:"We help Brazilian and foreign manufacturers sell with the best financing conditions in the country, boosting revenue and competitiveness.",tag1:"100% personalized support",tag2:"Deep technical expertise",tag3:"Strategic bridge to BNDES",high1:{t:"What we deliver",i1:"Eligibility diagnosis",i2:"Accreditation strategy",i3:"Full document management",i4:"Submission & follow‑up at BNDES"},high2:{t:"Your outcomes",i1:"Access to FINAME",i2:"More sales & credibility",i3:"Less bureaucracy, more time"}},
+        finame:{title:"What FINAME is and what BNDES is",p1:"FINAME is BNDES’s financing line for acquiring Brazilian‑made machinery and equipment, offering competitive rates and extended terms to foster industrialization.",p2:"BNDES is the Brazilian Development Bank. By accrediting your products under FINAME, you allow customers to purchase with the country’s best credit conditions.",how:{t:"How it works",d:"The manufacturer accredits products under FINAME. The buyer finances through a BNDES‑accredited financial institution, with lower rates and longer terms."},benefits:{t:"Benefits",i1:"Competitive edge",i2:"Trust & credibility",i3:"Proof of technical compliance",i4:"Broader customer base"},steps:{t:"How Pearson runs your project",i1:{t:"1) Set up the Brazilian legal entity",d:"Open tax IDs, state/municipal registrations and bank account for operations and financing."},i2:{t:"2) Project planning & development",d:"Scope, machinery and plant/warehouse adjustments."},i3:{t:"3) BNDES accreditation (company & products)",d:"Eligibility check, documentation and submission through approval."},i4:{t:"4) Warehouse adaptation & equipment procurement",d:"Oversee works, purchases and installation per BNDES standards."}}},
+        services:{title:"Services",lead:"End‑to‑end consulting so you can sell with FINAME and expand margins.",s1:{t:"FINAME Accreditation",d:"Technical analysis and full submission to BNDES through approval."},s2:{t:"Inclusion in Specific Lines",d:"Link already accredited products to specific financing lines."},s3:{t:"BNDES Card",d:"Accreditation and enablement to sell via BNDES Card."},s4:{t:"On‑demand consulting",d:"Component nationalization, factory setup and bespoke projects."}},
+        cases:{title:"Case studies & Testimonials",lead:"Industrial partnerships with tangible results.",trina:"Factory in Salvador/BA with FINAME‑accredited products; end‑to‑end support including technical seminars.",arctech:"Factory in Montes Claros/MG and a second unit in Camaçari/BA, fully compliant with FINAME.",crrc:"Strategic bridge between BNDES and CRRC, enabling the process with high‑level meetings and technical clarity.",testiTitle:"Recent testimonials",testi1:"ZUIKO (Japan): ‘Pearson’s consulting was critical for FINAME approval; professional support and peace of mind throughout.’",testi2:"ARTAMA: ‘After unsuccessful attempts, with Pearson we quickly obtained FINAME codes with close support.’"},
+        contact:{title:"Shall we accredit your products?",lead:"Talk to our technical team to assess eligibility and start your project.",phone:"Phones:",city:"Rio de Janeiro — Brazil",whats:"Chat on WhatsApp",email:"Send e‑mail",form:{title:"Tell us about your company",name:"Your name",company:"Company",email:"E‑mail",message:"Message",cta:"Send"},disclaimer:"When you submit, we open an email in your default client with the filled data."},
+        footer:{site:"Current site",learn:"Learn about FINAME"}
+      },
+      zh: {
+        nav:{about:"公司介绍",finame:"FINAME 与 BNDES",services:"服务",cases:"成功案例",contact:"联系"},
+        hero:{title1:"FINAME，一站式解决。",title2:"从评估到批准。",lead:"巴西领先的 FINAME 资质咨询机构：我们负责 BNDES 全流程，您专注销售。",primary:"联系顾问",secondary:"了解 FINAME 与 BNDES",stat1:"家客户",stat2:"年经验",stat3:"FINAME 资质领域第一"},
+        cta:{whats:"WhatsApp 咨询"},
+        about:{title:"我们是谁",p1:"我们专注于为机器、设备和系统办理 FINAME 资质。我司工程师团队精通 BNDES 技术标准，提供端到端项目管理。",p2:"帮助巴西及海外制造商以最优融资条件销售产品，提升营收与竞争力。",tag1:"100% 个性化服务",tag2:"深厚技术专长",tag3:"与 BNDES 的战略桥梁",high1:{t:"我们的交付",i1:"资格评估",i2:"资质策略",i3:"全套文件管理",i4:"向 BNDES 提交与跟进"},high2:{t:"为您带来的结果",i1:"获得 FINAME",i2:"更多销售与信任",i3:"更少官僚流程，节省时间"}},
+        finame:{title:"什么是 FINAME 与 BNDES",p1:"FINAME 是 BNDES 面向巴西制造的机器与设备的融资产品，提供有竞争力的利率与更长期限，促进工业化。",p2:"BNDES 为巴西国家经济与社会发展银行。将产品纳入 FINAME，可让客户以全国最优条件购买。",how:{t:"运作方式",d:"制造商为产品申请 FINAME 资质；客户通过 BNDES 认证的金融机构融资，享受更低利率与更长期限。"},benefits:{t:"优势",i1:"竞争优势",i2:"信任与信誉",i3:"技术合规证明",i4:"扩大客户群"},steps:{t:"Pearson 如何推进您的项目",i1:{t:"1）在巴西设立法人",d:"开立税号、州/市注册与银行账户。"},i2:{t:"2）项目规划与开发",d:"范围、设备与工厂/仓库调整。"},i3:{t:"3）BNDES 资质（公司与产品）",d:"资格校验、文件管理与提交直至批准。"},i4:{t:"4）仓库改造与设备采购",d:"按 BNDES 标准监督施工、采购与安装。"}}},
+        services:{title:"服务",lead:"端到端咨询，助您以 FINAME 销售并扩大利润。",s1:{t:"FINAME 资质",d:"技术分析与全流程提交至 BNDES 直至批准。"},s2:{t:"特定融资线纳入",d:"将已资质产品纳入特定融资线。"},s3:{t:"BNDES 卡",d:"办理 BNDES 卡销售资质。"},s4:{t:"专项咨询",d:"零部件国产化、工厂落地与定制项目。"}},
+        cases:{title:"成功案例与客户评价",lead:"工业合作，成效可见。",trina:"巴伊亚州萨尔瓦多建厂并完成 FINAME 资质；含技术培训支持。",arctech:"米纳斯吉拉斯州蒙蒂斯克拉罗斯建厂，并在卡马萨里建设第二工厂，全面符合 FINAME。",crrc:"在 BNDES 与 CRRC 之间搭建战略桥梁，以高层会议与技术澄清推动进程。",testiTitle:"近期评价",testi1:"ZUIKO（日本）：‘Pearson 的咨询对 FINAME 批准至关重要；全程专业且安心。’",testi2:"ARTAMA：‘此前多次未果，与 Pearson 合作后快速获得 FINAME 代码并得到贴身支持。’"},
+        contact:{title:"准备好为您的产品办理资质了吗？",lead:"与我们的技术团队沟通，评估资格并启动项目。",phone:"电话：",city:"巴西里约热内卢",whats:"WhatsApp 咨询",email:"发送邮件",form:{title:"请介绍您的公司",name:"您的姓名",company:"公司",email:"电子邮箱",message:"留言",cta:"发送"},disclaimer:"提交后，我们会在您的默认邮件客户端中打开一封邮件并填入信息。"},
+        footer:{site:"当前网站",learn:"了解 FINAME"}
+      }
+    };
+
+    const els = Array.from(document.querySelectorAll('[data-i18n]'));
+    const langSel = document.getElementById('lang');
+
+    function applyLang(l){
+      const t = DICT[l] || DICT.pt;
+      els.forEach(el=>{
+        const path = el.dataset.i18n.split('.');
+        let cur = t;
+        for(const k of path){ cur = cur?.[k]; }
+        if(typeof cur === 'string'){ el.textContent = cur; }
+      });
+      document.documentElement.lang = l === 'zh' ? 'zh' : (l==='en'?'en':'pt-br');
+    }
+
+    langSel.addEventListener('change', e=> applyLang(e.target.value));
+    applyLang('pt');
+
+    // counters
+    const counter = document.getElementById('counterClients');
+    let started=false; function animateCounter(){
+      if(started) return; started=true; const max=520, dur=1400, start=0; const t0=performance.now();
+      function step(t){ const p=Math.min(1,(t-t0)/dur); const n=Math.floor(start+(max-start)*p); counter.textContent = n+"+"; if(p<1) requestAnimationFrame(step); }
+      requestAnimationFrame(step);
+    }
+    const io = new IntersectionObserver((entries)=>{ entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('appear'); if(e.target.id==='counterClients') animateCounter(); } }); },{threshold:.2});
+    document.querySelectorAll('.fade-up, #counterClients').forEach(el=> io.observe(el));
+
+    // form -> mailto
+    function openMailer(){
+      const n=document.getElementById('fName').value.trim();
+      const c=document.getElementById('fCompany').value.trim();
+      const em=document.getElementById('fEmail').value.trim();
+      const m=document.getElementById('fMsg').value.trim();
+      const subject=encodeURIComponent('Projeto FINAME — ' + c);
+      const body=encodeURIComponent(`Nome: ${n}\nEmpresa: ${c}\nE-mail: ${em}\n\nMensagem:\n${m}`);
+      window.location.href=`mailto:contato@pearsonconsultoria.com.br?subject=${subject}&body=${body}`;
+    }
+    window.openMailer=openMailer;
+
+    // year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
