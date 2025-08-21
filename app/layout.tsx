@@ -1,10 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { Inter } from 'next/font/google';
 import { LangProvider } from '@/components/LangContext';
 import Header from '@/components/Header';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Pearson Consultoria — FINAME & BNDES Specialists',
@@ -15,7 +12,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-br">
-      <body className={inter.className}>
+      <body className="font-sans">
         <LangProvider>
           <Header />
           {children}
