@@ -1,0 +1,17 @@
+# deps & builds
+node_modules/
+.next/
+out/
+dist/
+build/
+
+# env / ferramentas
+.env*
+.vercel/
+.turbo/
+coverage/
+
+# SO / editores / logs
+.DS_Store
+Thumbs.db
+*.log
