@@ -45,16 +45,26 @@
         <a href="#cases" class="hover:text-white/90" data-i18n="nav.cases">Cases</a>
         <a href="#contact" class="hover:text-white/90" data-i18n="nav.contact">Contato</a>
       </nav>
+
+      <!-- LANG SWITCH: flags instead of dropdown -->
       <div class="flex items-center gap-2">
-        <div class="relative">
-          <select id="lang" class="appearance-none bg-white/10 ring-1 ring-white/20 text-white text-xs rounded-lg px-3 py-2 pr-8 cursor-pointer">
-            <option value="pt">PT-BR</option>
-            <option value="en">EN</option>
-            <option value="zh">中文</option>
-          </select>
-          <svg class="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-white/70" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"/></svg>
+        <div id="langSwitch" class="flex items-center gap-1" role="group" aria-label="Language">
+          <button type="button" data-lang="pt" aria-label="Português (Brasil)" aria-pressed="false" title="Português (Brasil)"
+            class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white/10 ring-1 ring-white/20 text-base hover:bg-white/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 transition">
+            🇧🇷
+          </button>
+          <button type="button" data-lang="en" aria-label="English" aria-pressed="false" title="English"
+            class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white/10 ring-1 ring-white/20 text-base hover:bg-white/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 transition">
+            🇺🇸
+          </button>
+          <button type="button" data-lang="zh" aria-label="中文" aria-pressed="false" title="中文"
+            class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-white/10 ring-1 ring-white/20 text-base hover:bg-white/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 transition">
+            🇨🇳
+          </button>
         </div>
-        <a href="https://wa.me/5521997805858" target="_blank" class="inline-flex items-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold bg-emerald-500 hover:bg-emerald-400 text-slate-900 shadow-soft">
+
+        <a href="https://wa.me/5521997805858" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold bg-emerald-500 hover:bg-emerald-400 text-slate-900 shadow-soft">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M20.52 3.48A11.5 11.5 0 003.2 18.92L2 22l3.19-1.17A11.5 11.5 0 1020.52 3.48zm-8 17.02a9.53 9.53 0 01-4.85-1.33l-.35-.21-2.88 1.05.99-2.98-.23-.37a9.52 9.52 0 1117.72-4.82 9.52 9.52 0 01-9.4 8.66zm5.36-7.19c-.29-.15-1.73-.85-2-.95s-.47-.15-.67.15-.77.95-.94 1.14-.35.22-.64.07a7.77 7.77 0 01-2.29-1.41 8.59 8.59 0 01-1.58-1.96c-.17-.29 0-.45.13-.6.13-.15.29-.37.44-.56.15-.19.2-.33.3-.56.1-.22.05-.41-.02-.56-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.19 0-.49.07-.75.37s-.98.96-.98 2.34 1.01 2.72 1.15 2.9c.15.19 1.98 3.03 4.8 4.25.67.29 1.19.46 1.6.59.67.21 1.28.18 1.76.11.54-.08 1.73-.71 1.98-1.39.25-.67.25-1.25.17-1.39-.07-.15-.26-.22-.55-.37z"/></svg>
           <span data-i18n="cta.whats">Falar no WhatsApp</span>
         </a>
@@ -74,7 +84,7 @@
         <br>
         <span class="text-emerald-300" data-i18n="hero.title2">Do diagnóstico à aprovação.</span>
       </h1>
-      <p class="mt-5 text-lg md:text-xl text-slate-200/90" data-i18n="hero.lead">A maior consultoria FINAME do Brasil para fabricantes: nós conduzimos todo o processo no BNDES e você foca nas vendas.</p>
+      <p class="mt-5 text-lg md:text-xl text-slate-200/90" data-i18n="hero.lead">A maior consultoria FINAME do Brasil: nós conduzimos todo o processo no BNDES e o fabricante foca nas vendas.</p>
       <div class="mt-8 flex items-center justify-center gap-3">
         <a href="#contact" class="rounded-2xl bg-emerald-400 text-slate-900 font-semibold px-5 py-3 shadow-soft hover:bg-emerald-300" data-i18n="hero.primary">Fale com um consultor</a>
         <a href="#finame" class="rounded-2xl bg-white/10 ring-1 ring-white/20 px-5 py-3 font-medium hover:bg-white/15" data-i18n="hero.secondary">Entenda FINAME & BNDES</a>
@@ -258,8 +268,10 @@
             <div><span class="font-semibold" data-i18n="contact.city">Rio de Janeiro — Brasil</span></div>
           </div>
           <div class="mt-6 flex gap-3">
-            <a href="https://wa.me/5521997805858" target="_blank" class="rounded-2xl bg-emerald-400 text-slate-900 font-semibold px-5 py-3 shadow-soft hover:bg-emerald-300" data-i18n="contact.whats">Falar no WhatsApp</a>
-            <a href="mailto:contato@pearsonconsultoria.com.br?subject=Projeto%20FINAME%20-%20Pearson%20Consultoria" class="rounded-2xl bg-white/10 ring-1 ring-white/20 px-5 py-3 font-medium hover:bg-white/15" data-i18n="contact.email">Enviar e-mail</a>
+            <a href="https://wa.me/5521997805858" target="_blank" rel="noopener noreferrer"
+               class="rounded-2xl bg-emerald-400 text-slate-900 font-semibold px-5 py-3 shadow-soft hover:bg-emerald-300" data-i18n="contact.whats">Falar no WhatsApp</a>
+            <a href="mailto:contato@pearsonconsultoria.com.br?subject=Projeto%20FINAME%20-%20Pearson%20Consultoria"
+               class="rounded-2xl bg-white/10 ring-1 ring-white/20 px-5 py-3 font-medium hover:bg-white/15" data-i18n="contact.email">Enviar e-mail</a>
           </div>
         </div>
         <form class="fade-up rounded-3xl card p-6" onsubmit="event.preventDefault(); openMailer();">
@@ -297,7 +309,7 @@
         <div class="text-sm text-slate-400">© <span id="year"></span> Pearson Consultoria — Todos os direitos reservados.</div>
       </div>
       <div class="text-sm text-slate-300">
-        <a class="hover:underline" href="https://www.pearsonconsultoria.com.br/" target="_blank" data-i18n="footer.site">Site atual</a>
+        <a class="hover:underline" href="https://www.pearsonconsultoria.com.br/" target="_blank" rel="noopener noreferrer" data-i18n="footer.site">Site atual</a>
         <span class="mx-2">·</span>
         <a class="hover:underline" href="#finame" data-i18n="footer.learn">Saiba mais sobre FINAME</a>
       </div>
@@ -322,11 +334,11 @@
         nav:{about:"About",finame:"FINAME & BNDES",services:"Services",cases:"Case Studies",contact:"Contact"},
         hero:{title1:"FINAME made simple.",title2:"From assessment to approval.",lead:"Brazil’s leading FINAME consultancy for manufacturers: we run the BNDES process so you can focus on sales.",primary:"Talk to a consultant",secondary:"Understand FINAME & BNDES",stat1:"clients served",stat2:"years of experience",stat3:"in FINAME accreditation"},
         cta:{whats:"Chat on WhatsApp"},
-        about:{title:"Who we are",p1:"We are specialists in accrediting machines, equipment and systems under FINAME. Our engineering team masters BNDES technical criteria and manages end‑to‑end projects.",p2:"We help Brazilian and foreign manufacturers sell with the best financing conditions in the country, boosting revenue and competitiveness.",tag1:"100% personalized support",tag2:"Deep technical expertise",tag3:"Strategic bridge to BNDES",high1:{t:"What we deliver",i1:"Eligibility diagnosis",i2:"Accreditation strategy",i3:"Full document management",i4:"Submission & follow‑up at BNDES"},high2:{t:"Your outcomes",i1:"Access to FINAME",i2:"More sales & credibility",i3:"Less bureaucracy, more time"}},
-        finame:{title:"What FINAME is and what BNDES is",p1:"FINAME is BNDES’s financing line for acquiring Brazilian‑made machinery and equipment, offering competitive rates and extended terms to foster industrialization.",p2:"BNDES is the Brazilian Development Bank. By accrediting your products under FINAME, you allow customers to purchase with the country’s best credit conditions.",how:{t:"How it works",d:"The manufacturer accredits products under FINAME. The buyer finances through a BNDES‑accredited financial institution, with lower rates and longer terms."},benefits:{t:"Benefits",i1:"Competitive edge",i2:"Trust & credibility",i3:"Proof of technical compliance",i4:"Broader customer base"},steps:{t:"How Pearson runs your project",i1:{t:"1) Set up the Brazilian legal entity",d:"Open tax IDs, state/municipal registrations and bank account for operations and financing."},i2:{t:"2) Project planning & development",d:"Scope, machinery and plant/warehouse adjustments."},i3:{t:"3) BNDES accreditation (company & products)",d:"Eligibility check, documentation and submission through approval."},i4:{t:"4) Warehouse adaptation & equipment procurement",d:"Oversee works, purchases and installation per BNDES standards."}}},
-        services:{title:"Services",lead:"End‑to‑end consulting so you can sell with FINAME and expand margins.",s1:{t:"FINAME Accreditation",d:"Technical analysis and full submission to BNDES through approval."},s2:{t:"Inclusion in Specific Lines",d:"Link already accredited products to specific financing lines."},s3:{t:"BNDES Card",d:"Accreditation and enablement to sell via BNDES Card."},s4:{t:"On‑demand consulting",d:"Component nationalization, factory setup and bespoke projects."}},
-        cases:{title:"Case studies & Testimonials",lead:"Industrial partnerships with tangible results.",trina:"Factory in Salvador/BA with FINAME‑accredited products; end‑to‑end support including technical seminars.",arctech:"Factory in Montes Claros/MG and a second unit in Camaçari/BA, fully compliant with FINAME.",crrc:"Strategic bridge between BNDES and CRRC, enabling the process with high‑level meetings and technical clarity.",testiTitle:"Recent testimonials",testi1:"ZUIKO (Japan): ‘Pearson’s consulting was critical for FINAME approval; professional support and peace of mind throughout.’",testi2:"ARTAMA: ‘After unsuccessful attempts, with Pearson we quickly obtained FINAME codes with close support.’"},
-        contact:{title:"Shall we accredit your products?",lead:"Talk to our technical team to assess eligibility and start your project.",phone:"Phones:",city:"Rio de Janeiro — Brazil",whats:"Chat on WhatsApp",email:"Send e‑mail",form:{title:"Tell us about your company",name:"Your name",company:"Company",email:"E‑mail",message:"Message",cta:"Send"},disclaimer:"When you submit, we open an email in your default client with the filled data."},
+        about:{title:"Who we are",p1:"We are specialists in accrediting machines, equipment and systems under FINAME. Our engineering team masters BNDES technical criteria and manages end-to-end projects.",p2:"We help Brazilian and foreign manufacturers sell with the best financing conditions in the country, boosting revenue and competitiveness.",tag1:"100% personalized support",tag2:"Deep technical expertise",tag3:"Strategic bridge to BNDES",high1:{t:"What we deliver",i1:"Eligibility diagnosis",i2:"Accreditation strategy",i3:"Full document management",i4:"Submission & follow-up at BNDES"},high2:{t:"Your outcomes",i1:"Access to FINAME",i2:"More sales & credibility",i3:"Less bureaucracy, more time"}},
+        finame:{title:"What FINAME is and what BNDES is",p1:"FINAME is BNDES’s financing line for acquiring Brazilian-made machinery and equipment, offering competitive rates and extended terms to foster industrialization.",p2:"BNDES is the Brazilian Development Bank. By accrediting your products under FINAME, you allow customers to purchase with the country’s best credit conditions.",how:{t:"How it works",d:"The manufacturer accredits products under FINAME. The buyer finances through a BNDES-accredited financial institution, with lower rates and longer terms."},benefits:{t:"Benefits",i1:"Competitive edge",i2:"Trust & credibility",i3:"Proof of technical compliance",i4:"Broader customer base"},steps:{t:"How Pearson runs your project",i1:{t:"1) Set up the Brazilian legal entity",d:"Open tax IDs, state/municipal registrations and bank account for operations and financing."},i2:{t:"2) Project planning & development",d:"Scope, machinery and plant/warehouse adjustments."},i3:{t:"3) BNDES accreditation (company & products)",d:"Eligibility check, documentation and submission through approval."},i4:{t:"4) Warehouse adaptation & equipment procurement",d:"Oversee works, purchases and installation per BNDES standards."}}},
+        services:{title:"Services",lead:"End-to-end consulting so you can sell with FINAME and expand margins.",s1:{t:"FINAME Accreditation",d:"Technical analysis and full submission to BNDES through approval."},s2:{t:"Inclusion in Specific Lines",d:"Link already accredited products to specific financing lines."},s3:{t:"BNDES Card",d:"Accreditation and enablement to sell via BNDES Card."},s4:{t:"On-demand consulting",d:"Component nationalization, factory setup and bespoke projects."}},
+        cases:{title:"Case studies & Testimonials",lead:"Industrial partnerships with tangible results.",trina:"Factory in Salvador/BA with FINAME-accredited products; end-to-end support including technical seminars.",arctech:"Factory in Montes Claros/MG and a second unit in Camaçari/BA, fully compliant with FINAME.",crrc:"Strategic bridge between BNDES and CRRC, enabling the process with high-level meetings and technical clarity.",testiTitle:"Recent testimonials",testi1:"ZUIKO (Japan): ‘Pearson’s consulting was critical for FINAME approval; professional support and peace of mind throughout.’",testi2:"ARTAMA: ‘After unsuccessful attempts, with Pearson we quickly obtained FINAME codes with close support.’"},
+        contact:{title:"Shall we accredit your products?",lead:"Talk to our technical team to assess eligibility and start your project.",phone:"Phones:",city:"Rio de Janeiro — Brazil",whats:"Chat on WhatsApp",email:"Send e-mail",form:{title:"Tell us about your company",name:"Your name",company:"Company",email:"E-mail",message:"Message",cta:"Send"},disclaimer:"When you submit, we open an email in your default client with the filled data."},
         footer:{site:"Current site",learn:"Learn about FINAME"}
       },
       zh: {
@@ -343,8 +355,9 @@
     };
 
     const els = Array.from(document.querySelectorAll('[data-i18n]'));
-    const langSel = document.getElementById('lang');
 
+    // --- Language: flags logic with persistence ---
+    const flagButtons = Array.from(document.querySelectorAll('#langSwitch [data-lang]'));
     function applyLang(l){
       const t = DICT[l] || DICT.pt;
       els.forEach(el=>{
@@ -354,10 +367,27 @@
         if(typeof cur === 'string'){ el.textContent = cur; }
       });
       document.documentElement.lang = l === 'zh' ? 'zh' : (l==='en'?'en':'pt-br');
+      // visual state
+      flagButtons.forEach(btn=>{
+        const active = btn.dataset.lang === l;
+        btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+        btn.classList.toggle('bg-white/20', active);
+        btn.classList.toggle('ring-2', active);
+        btn.classList.toggle('ring-emerald-400', active);
+      });
     }
-
-    langSel.addEventListener('change', e=> applyLang(e.target.value));
-    applyLang('pt');
+    function setLang(l){
+      localStorage.setItem('lang', l);
+      applyLang(l);
+    }
+    flagButtons.forEach(btn=>{
+      btn.addEventListener('click', ()=> setLang(btn.dataset.lang));
+      btn.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' ') { e.preventDefault(); setLang(btn.dataset.lang); }});
+    });
+    const initialLang = localStorage.getItem('lang') ||
+      (navigator.language||'').toLowerCase().startsWith('pt') ? 'pt'
+      : (navigator.language||'').toLowerCase().startsWith('zh') ? 'zh' : 'en';
+    applyLang(initialLang);
 
     // counters
     const counter = document.getElementById('counterClients');

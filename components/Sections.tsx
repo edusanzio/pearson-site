@@ -1,12 +1,44 @@
 'use client';
+import dynamic from 'next/dynamic';
 import { t } from '@/lib/dict';
 import { useLang } from './LangContext';
+import { CLIENTS } from '@/lib/clients';
+import ClientsCarousel from './ClientsCarousel';
+import Image from 'next/image';
+
+// importa os componentes de forma dinâmica (sem SSR)
+const BrazilClientsMap = dynamic(() => import('./BrazilClientsMap'), { ssr: false });
+//const ClientsCarousel  = dynamic(() => import('./ClientsCarousel'),  { ssr: false });
 
 export function About(){
   const {lang}=useLang();
+
   return (
-    <section id="about" className="py-24">
-      <div className="max-w-6xl mx-auto px-6">
+    <section
+      id="about"
+      className="relative py-24 border-y border-white/10 overflow-hidden"
+    >
+      {/* Logo como fundo */}
+      <Image
+        src="/images/pearson.png"
+        alt=""
+        fill
+        sizes="100vw"
+        aria-hidden
+        className="
+          absolute inset-0 z-0 object-contain
+          sm:object-left md:object-center
+          opacity-15 pointer-events-none
+        "
+        // dica: se quiser garantir carregamento, pode usar priority
+        // priority
+      />
+
+      {/* Overlays para leitura */}
+      <div className="absolute inset-0 z-10 bg-slate-950/35" />
+      <div className="absolute inset-0 z-10 bg-gradient-to-b from-slate-950/15 via-transparent to-slate-950/35" />
+
+      <div className="relative z-20 max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="fade-up">
             <h2 className="text-3xl md:text-4xl font-extrabold">{t(lang,'about.title')}</h2>
@@ -18,6 +50,7 @@ export function About(){
               <span className="text-xs rounded-full border border-white/20 px-3 py-1">{t(lang,'about.tag3')}</span>
             </div>
           </div>
+
           <div className="fade-up">
             <div className="rounded-3xl card p-6">
               <div className="grid sm:grid-cols-2 gap-6">
@@ -47,16 +80,37 @@ export function About(){
   );
 }
 
-export function Finame(){
-  const {lang}=useLang();
+export function Finame() {
+  const { lang } = useLang();
+
   return (
-    <section id="finame" className="py-24 bg-slate-900/60 border-y border-white/10">
-      <div className="max-w-6xl mx-auto px-6">
+    <section
+      id="finame"
+      className="relative py-24 border-y border-white/10 overflow-hidden"
+    >
+      {/* Imagem de fundo */}
+      <Image
+        src="/images/bndes.jpg"
+        alt=""                 // decorativa
+        fill
+        sizes="100vw"
+        priority={false}
+        className="absolute inset-0 z-0 object-cover object-center opacity-40"
+        aria-hidden
+      />
+
+      {/* Overlays para contraste */}
+      <div className="absolute inset-0 z-10 bg-slate-950/45" />
+      <div className="absolute inset-0 z-10 bg-gradient-to-b from-slate-950/20 via-slate-950/55 to-slate-950" />
+
+      {/* Conteúdo */}
+      <div className="relative z-20 max-w-6xl mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-12">
           <div className="fade-up">
             <h2 className="text-3xl md:text-4xl font-extrabold">{t(lang,'finame.title')}</h2>
-            <p className="mt-4 text-slate-300">{t(lang,'finame.p1')}</p>
-            <p className="mt-3 text-slate-300">{t(lang,'finame.p2')}</p>
+            <p className="mt-4 text-slate-300">{t(lang,'finame.p2')}</p>
+            <p className="mt-3 text-slate-300">{t(lang,'finame.p1')}</p>
+
             <div className="mt-6 grid sm:grid-cols-2 gap-4">
               <div className="rounded-2xl card p-5">
                 <h3 className="font-bold">{t(lang,'finame.how.t')}</h3>
@@ -73,6 +127,7 @@ export function Finame(){
               </div>
             </div>
           </div>
+
           <div className="fade-up">
             <h3 className="text-xl font-bold">{t(lang,'finame.steps.t')}</h3>
             <ol className="mt-4 space-y-4">
@@ -167,6 +222,31 @@ export function Cases(){
   );
 }
 
+export function Footprint() {
+  const { lang } = useLang();
+
+  return (
+    <section id="footprint" className="py-24 bg-slate-900/60 border-y border-white/10">
+      <div className="max-w-6xl mx-auto px-6">
+        <h3 className="text-2xl md:text-3xl font-extrabold mb-2">
+          Onde atuamos
+        </h3>
+        <p className="text-slate-300 mb-6">
+          Cidades com clientes Pearson — passe o mouse para ver a empresa e o que fabrica.
+        </p>
+
+        <div className="p-0 bg-transparent border-0 ring-0 shadow-none rounded-none">
+          <BrazilClientsMap clients={CLIENTS} />
+        </div>
+        <div className="mt-10">
+          <ClientsCarousel clients={CLIENTS} />
+        </div>
+      
+      </div>
+    </section>
+  );
+}
+
 export function Contact(){
   const {lang}=useLang();
   function openMailer(e:React.FormEvent){
@@ -193,7 +273,7 @@ export function Contact(){
               <div><span className="font-semibold">{t(lang,'contact.city')}</span></div>
             </div>
             <div className="mt-6 flex gap-3">
-              <a href="https://wa.me/5521997805858" target="_blank" className="rounded-2xl bg-emerald-400 text-slate-900 font-semibold px-5 py-3 shadow-soft hover:bg-emerald-300">{t(lang,'contact.whats')}</a>
+              <a href="https://wa.me/5521997805858" target="_blank" className="rounded-2xl bg-pearson-green text-slate-900 font-semibold px-5 py-3 shadow-soft hover:bg-pearson-green-dark">{t(lang,'contact.whats')}</a>
               <a href="mailto:contato@pearsonconsultoria.com.br?subject=Projeto%20FINAME%20-%20Pearson%20Consultoria" className="rounded-2xl bg-white/10 ring-1 ring-white/20 px-5 py-3 font-medium hover:bg-white/15">{t(lang,'contact.email')}</a>
             </div>
           </div>
@@ -216,7 +296,7 @@ export function Contact(){
                 <span className="text-sm text-slate-300">{t(lang,'contact.form.message')}</span>
                 <textarea id="fMsg" rows={4} className="mt-1 w-full rounded-xl bg-white/10 ring-1 ring-white/20 px-3 py-2" />
               </label>
-              <button className="rounded-2xl bg-emerald-400 text-slate-900 font-semibold px-5 py-3 shadow-soft hover:bg-emerald-300">{t(lang,'contact.form.cta')}</button>
+              <button className="rounded-2xl bg-pearson-green text-slate-900 font-semibold px-5 py-3 shadow-soft hover:bg-pearson-green-dark">{t(lang,'contact.form.cta')}</button>
             </div>
             <p className="mt-3 text-xs text-slate-400">{t(lang,'contact.disclaimer')}</p>
           </form>

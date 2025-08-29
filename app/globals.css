@@ -7,8 +7,24 @@ html { scroll-behavior: smooth; }
 body { @apply bg-slate-950 text-slate-100; }
 
 .glass { backdrop-filter: saturate(140%) blur(8px); background: rgba(255,255,255,.08); }
-.card { background: linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.06)); border:1px solid rgba(255,255,255,.12); }
+/* globals.css */
+.card{
+  /* fundo azul com leve gradiente e translucidez */
+  background: linear-gradient(
+    180deg,
+    rgba(40, 65, 137, 0.22),
+    rgba(40, 65, 137, 0.14)
+  );
+  border: 1px solid rgba(255,255,255,.12);
+}
 .shadow-soft { box-shadow: 0 10px 25px rgba(0,0,0,.12); }
 .fade-up { opacity:0; transform: translateY(16px); transition: opacity .6s ease, transform .6s ease; }
 .fade-up.appear { opacity:1; transform:none; }
 .hero-bg iframe { position:absolute; top:50%; left:50%; width:120vw; height:120vh; transform: translate(-50%,-50%); pointer-events:none; filter: saturate(105%); }
+/* sombra de texto suave para títulos no hero */
+.text-hero-contrast {
+  text-shadow: 0 2px 12px rgba(0,0,0,.55), 0 1px 1px rgba(0,0,0,.35);
+}
+/* esconder barra do carrossel (opcional) */
+.scrollbar-none::-webkit-scrollbar { display: none; }
+.scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }

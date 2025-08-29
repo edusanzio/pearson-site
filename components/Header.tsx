@@ -1,46 +1,155 @@
 'use client';
-import Link from 'next/link';
 import { useLang } from './LangContext';
 import { t } from '@/lib/dict';
+import Image from 'next/image';
 
-export default function Header(){
-  const {lang,setLang} = useLang();
+type Lang = 'pt' | 'en' | 'zh';
+
+/* --- SVGs das bandeiras (28x20 viewBox) --- */
+function BrazilFlagSVG() {
+  return (
+    <svg viewBox="0 0 28 20" className="h-5 w-7" aria-hidden="true">
+      <rect width="28" height="20" fill="#009B3A" />
+      <path d="M14 2 26 10 14 18 2 10 14 2Z" fill="#FFDF00" />
+      <circle cx="14" cy="10" r="5.2" fill="#002776" />
+      {/* faixa branca simples (aproximação) */}
+      <path d="M9 10.5c3.8-3 7.2-3 10 0" fill="none" stroke="#fff" strokeWidth="1" />
+    </svg>
+  );
+}
+
+function USAFlagSVG() {
+  return (
+    <svg viewBox="0 0 28 20" className="h-5 w-7" aria-hidden="true">
+      <rect width="28" height="20" fill="#fff" />
+      {/* 7 listras vermelhas (aprox.) */}
+      <rect y="0" width="28" height="2" fill="#B22234" />
+      <rect y="3" width="28" height="2" fill="#B22234" />
+      <rect y="6" width="28" height="2" fill="#B22234" />
+      <rect y="9" width="28" height="2" fill="#B22234" />
+      <rect y="12" width="28" height="2" fill="#B22234" />
+      <rect y="15" width="28" height="2" fill="#B22234" />
+      <rect y="18" width="28" height="2" fill="#B22234" />
+      {/* canton azul */}
+      <rect width="12" height="8" fill="#3C3B6E" />
+      {/* pontinhos brancos (estrelinhas simplificadas) */}
+      {Array.from({ length: 4 }).map((_, r) =>
+        Array.from({ length: 6 }).map((__, c) => (
+          <circle key={`${r}-${c}`} cx={1.5 + c * 2} cy={1 + r * 2} r="0.25" fill="#fff" />
+        ))
+      )}
+    </svg>
+  );
+}
+
+function ChinaFlagSVG() {
+  return (
+    <svg viewBox="0 0 28 20" className="h-5 w-7" aria-hidden="true">
+      <rect width="28" height="20" fill="#DE2910" />
+      {/* estrela grande */}
+      <polygon
+        points="6,2 7.2,5.4 10.8,5.4 7.9,7.5 9.1,10.8 6,8.8 2.9,10.8 4.1,7.5 1.2,5.4 4.8,5.4"
+        fill="#FFDE00"
+      />
+      {/* quatro pequenas (aprox. como estrelinhas) */}
+      <polygon points="10,3.5 10.4,4.6 11.6,4.6 10.6,5.3 11,6.4 10,5.7 9,6.4 9.4,5.3 8.4,4.6 9.6,4.6" fill="#FFDE00" />
+      <polygon points="12,5.3 12.4,6.4 13.6,6.4 12.6,7.1 13,8.2 12,7.5 11,8.2 11.4,7.1 10.4,6.4 11.6,6.4" fill="#FFDE00" />
+      <polygon points="12,8.2 12.4,9.3 13.6,9.3 12.6,10 13,11.1 12,10.4 11,11.1 11.4,10 10.4,9.3 11.6,9.3" fill="#FFDE00" />
+      <polygon points="10,10 10.4,11.1 11.6,11.1 10.6,11.8 11,12.9 10,12.2 9,12.9 9.4,11.8 8.4,11.1 9.6,11.1" fill="#FFDE00" />
+    </svg>
+  );
+}
+
+/* --- Botão genérico de bandeira --- */
+function FlagButton({
+  code,
+  label,
+  svg,
+}: {
+  code: Lang;
+  label: string;
+  svg: JSX.Element;
+}) {
+  const { lang, setLang } = useLang();
+  const active = lang === code;
+
+  return (
+    <button
+      type="button"
+      aria-label={label}
+      aria-pressed={active}
+      title={label}
+      onClick={() => setLang(code)}
+      className={[
+        'inline-flex items-center justify-center rounded-lg bg-white/10 ring-1 ring-white/20 overflow-hidden',
+        'hover:bg-white/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-pearson-green transition',
+        active ? 'bg-white/20 ring-2 ring-pearson-green' : '',
+        'h-8 w-12', // retangular
+      ].join(' ')}
+    >
+      {svg}
+    </button>
+  );
+}
+
+export default function Header() {
+  const { lang } = useLang();
+
   return (
     <header className="sticky top-0 z-40 backdrop-blur bg-slate-950/60 border-b border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        {/* Marca */}
         <a href="#home" className="flex items-center gap-3 group">
-          <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 ring-1 ring-white/20">
-            <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5 text-emerald-300">
-              <path d="M12 2a10 10 0 1 0 10 10A10.011 10.011 0 0 0 12 2Zm.75 5a.75.75 0 0 1 .75.75V11h3.25a.75.75 0 0 1 0 1.5H13.5v3.25a.75.75 0 0 1-1.5 0V12.5H8.75a.75.75 0 0 1 0-1.5H12V7.75A.75.75 0 0 1 12.75 7Z"/></svg>
-          </span>
-          <div className="leading-tight">
+          <div className="relative h-40 w-[100px]">
+            <Image
+              src="/images/pearson.png"
+              alt="Pearson Consultoria"
+              fill
+              sizes="140px"
+              priority
+              className="object-contain mix-blend-screen drop-shadow-[0_0_10px_rgba(255,255,255,0.18)]"
+
+            />
+          </div>
+          {/* texto opcional (esconde em telas muito pequenas) */}
+          <div className="leading-tight hidden sm:block">
             <span className="block font-extrabold tracking-tight">Pearson Consultoria</span>
             <span className="block text-xs text-slate-300">FINAME & BNDES Specialists</span>
           </div>
         </a>
+
+        {/* Navegação */}
         <nav className="hidden md:flex items-center gap-6 text-sm">
-          <a href="#about" className="hover:text-white/90">{t(lang,'nav.about')}</a>
-          <a href="#finame" className="hover:text-white/90">{t(lang,'nav.finame')}</a>
-          <a href="#services" className="hover:text-white/90">{t(lang,'nav.services')}</a>
-          <a href="#cases" className="hover:text-white/90">{t(lang,'nav.cases')}</a>
-          <a href="#contact" className="hover:text-white/90">{t(lang,'nav.contact')}</a>
+          <a href="#about" className="hover:text-white/90">{t(lang, 'nav.about')}</a>
+          <a href="#finame" className="hover:text-white/90">{t(lang, 'nav.finame')}</a>
+          <a href="#services" className="hover:text-white/90">{t(lang, 'nav.services')}</a>
+          <a href="#cases" className="hover:text-white/90">{t(lang, 'nav.cases')}</a>
+          <a href="#contact" className="hover:text-white/90">{t(lang, 'nav.contact')}</a>
         </nav>
+
+        {/* Bandeiras + WhatsApp */}
         <div className="flex items-center gap-2">
-          <div className="relative">
-            <select value={lang} onChange={e=>setLang(e.target.value as any)}
-              className="appearance-none bg-white/10 ring-1 ring-white/20 text-white text-xs rounded-lg px-3 py-2 pr-8 cursor-pointer">
-              <option value="pt">PT-BR</option>
-              <option value="en">EN</option>
-              <option value="zh">中文</option>
-            </select>
-            <svg className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2 h-4 w-4 text-white/70" viewBox="0 0 20 20" fill="currentColor"><path d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"/></svg>
+          <div id="langSwitch" className="flex items-center gap-1" role="group" aria-label="Language">
+            <FlagButton code="pt" label="Português (Brasil)" svg={<BrazilFlagSVG />} />
+            <FlagButton code="en" label="English" svg={<USAFlagSVG />} />
+            <FlagButton code="zh" label="中文" svg={<ChinaFlagSVG />} />
           </div>
-          <a href="https://wa.me/5521997805858" target="_blank" className="inline-flex items-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold bg-emerald-500 hover:bg-emerald-400 text-slate-900 shadow-soft">
-            <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4"><path d="M20.52 3.48A11.5 11.5 0 003.2 18.92L2 22l3.19-1.17A11.5 11.5 0 1020.52 3.48zm-8 17.02a9.53 9.53 0 01-4.85-1.33l-.35-.21-2.88 1.05.99-2.98-.23-.37a9.52 9.52 0 1117.72-4.82 9.52 9.52 0 01-9.4 8.66zm5.36-7.19c-.29-.15-1.73-.85-2-.95s-.47-.15-.67.15-.77.95-.94 1.14-.35.22-.64.07a7.77 7.77 0 01-2.29-1.41 8.59 8.59 0 01-1.58-1.96c-.17-.29 0-.45.13-.6.13-.15.29-.37.44-.56.15-.19.2-.33.3-.56.1-.22.05-.41-.02-.56-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.19 0-.49.07-.75.37s-.98.96-.98 2.34 1.01 2.72 1.15 2.9c.15.19 1.98 3.03 4.8 4.25.67.29 1.19.46 1.6.59.67.21 1.28.18 1.76.11.54-.08 1.73-.71 1.98-1.39.25-.67.25-1.25.17-1.39-.07-.15-.26-.22-.55-.37z"/></svg>
-            <span>WhatsApp</span>
+
+          <a
+            href="https://wa.me/5521997805858"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-xl px-3 py-2 text-xs font-semibold
+                       bg-pearson-green hover:bg-pearson-green-dark text-white shadow-soft"
+          >
+            <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
+              <path d="M20.52 3.48A11.5 11.5 0 003.2 18.92L2 22l3.19-1.17A11.5 11.5 0 1020.52 3.48zm-8 17.02a9.53 9.53 0 01-4.85-1.33l-.35-.21-2.88 1.05.99-2.98-.23-.37a9.52 9.52 0 1117.72-4.82 9.52 9.52 0 01-9.4 8.66zm5.36-7.19c-.29-.15-1.73-.85-2-.95s-.47-.15-.67.15-.77.95-.94 1.14-.35.22-.64.07a7.77 7.77 0 01-2.29-1.41 8.59 8.59 0 01-1.58-1.96c-.17-.29 0-.45.13-.6.13-.15.29-.37.44-.56.15-.19.2-.33.3-.56.1-.22.05-.41-.02-.56-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.19 0-.49.07-.75.37s-.98.96-.98 2.34 1.01 2.72 1.15 2.9c.15.19 1.98 3.03 4.8 4.25.67.29 1.19.46 1.6.59.67.21 1.28.18 1.76.11.54-.08 1.73-.71 1.98-1.39.25-.67.25-1.25.17-1.39-.07-.15-.26-.22-.55-.37z" />
+            </svg>
+            <span>{t(lang, 'cta.whats') ?? 'WhatsApp'}</span>
           </a>
         </div>
       </div>
+      <link rel="preload" as="fetch" href="/maps/br-states.json" crossOrigin="anonymous" />
     </header>
-  )
+  );
 }
