@@ -1,7 +1,8 @@
 'use client';
+
+import Image from 'next/image';
 import { useLang } from './LangContext';
 import { t } from '@/lib/dict';
-import Image from 'next/image';
 
 type Lang = 'pt' | 'en' | 'zh';
 
@@ -12,17 +13,14 @@ function BrazilFlagSVG() {
       <rect width="28" height="20" fill="#009B3A" />
       <path d="M14 2 26 10 14 18 2 10 14 2Z" fill="#FFDF00" />
       <circle cx="14" cy="10" r="5.2" fill="#002776" />
-      {/* faixa branca simples (aproximação) */}
       <path d="M9 10.5c3.8-3 7.2-3 10 0" fill="none" stroke="#fff" strokeWidth="1" />
     </svg>
   );
 }
-
 function USAFlagSVG() {
   return (
     <svg viewBox="0 0 28 20" className="h-5 w-7" aria-hidden="true">
       <rect width="28" height="20" fill="#fff" />
-      {/* 7 listras vermelhas (aprox.) */}
       <rect y="0" width="28" height="2" fill="#B22234" />
       <rect y="3" width="28" height="2" fill="#B22234" />
       <rect y="6" width="28" height="2" fill="#B22234" />
@@ -30,9 +28,7 @@ function USAFlagSVG() {
       <rect y="12" width="28" height="2" fill="#B22234" />
       <rect y="15" width="28" height="2" fill="#B22234" />
       <rect y="18" width="28" height="2" fill="#B22234" />
-      {/* canton azul */}
       <rect width="12" height="8" fill="#3C3B6E" />
-      {/* pontinhos brancos (estrelinhas simplificadas) */}
       {Array.from({ length: 4 }).map((_, r) =>
         Array.from({ length: 6 }).map((__, c) => (
           <circle key={`${r}-${c}`} cx={1.5 + c * 2} cy={1 + r * 2} r="0.25" fill="#fff" />
@@ -41,17 +37,14 @@ function USAFlagSVG() {
     </svg>
   );
 }
-
 function ChinaFlagSVG() {
   return (
     <svg viewBox="0 0 28 20" className="h-5 w-7" aria-hidden="true">
       <rect width="28" height="20" fill="#DE2910" />
-      {/* estrela grande */}
       <polygon
         points="6,2 7.2,5.4 10.8,5.4 7.9,7.5 9.1,10.8 6,8.8 2.9,10.8 4.1,7.5 1.2,5.4 4.8,5.4"
         fill="#FFDE00"
       />
-      {/* quatro pequenas (aprox. como estrelinhas) */}
       <polygon points="10,3.5 10.4,4.6 11.6,4.6 10.6,5.3 11,6.4 10,5.7 9,6.4 9.4,5.3 8.4,4.6 9.6,4.6" fill="#FFDE00" />
       <polygon points="12,5.3 12.4,6.4 13.6,6.4 12.6,7.1 13,8.2 12,7.5 11,8.2 11.4,7.1 10.4,6.4 11.6,6.4" fill="#FFDE00" />
       <polygon points="12,8.2 12.4,9.3 13.6,9.3 12.6,10 13,11.1 12,10.4 11,11.1 11.4,10 10.4,9.3 11.6,9.3" fill="#FFDE00" />
@@ -60,7 +53,7 @@ function ChinaFlagSVG() {
   );
 }
 
-/* --- Botão genérico de bandeira --- */
+/* --- Botão de bandeira com destaque verde no hover/ativo --- */
 function FlagButton({
   code,
   label,
@@ -81,12 +74,23 @@ function FlagButton({
       title={label}
       onClick={() => setLang(code)}
       className={[
-        'inline-flex items-center justify-center rounded-lg bg-white/10 ring-1 ring-white/20 overflow-hidden',
-        'hover:bg-white/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-pearson-green transition',
-        active ? 'bg-white/20 ring-2 ring-pearson-green' : '',
-        'h-8 w-12', // retangular
+        'group relative inline-flex h-8 w-12 items-center justify-center overflow-hidden rounded-lg',
+        'bg-white/10 ring-1 ring-white/20 transition-all duration-200 ease-out',
+        active
+          ? 'ring-2 ring-pearson-green shadow-[0_0_0_3px_rgba(18,148,87,.25)]'
+          : 'hover:bg-white/15 hover:ring-pearson-green/60',
+        'focus:outline-none focus-visible:ring-2 focus-visible:ring-pearson-green',
       ].join(' ')}
     >
+      {/* Glow radial verde ao passar o mouse */}
+      <span
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+        style={{
+          background:
+            'radial-gradient(ellipse at center, rgba(18,148,87,.22) 0%, rgba(18,148,87,.10) 35%, rgba(0,0,0,0) 70%)',
+        }}
+      />
       {svg}
     </button>
   );
@@ -97,33 +101,27 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-40 backdrop-blur bg-slate-950/60 border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        {/* Marca */}
-        <a href="#home" className="flex items-center gap-3 group">
-          <div className="relative h-40 w-[100px]">
-            <Image
-              src="/images/pearson.png"
-              alt="Pearson Consultoria"
-              fill
-              sizes="140px"
-              priority
-              className="object-contain mix-blend-screen drop-shadow-[0_0_10px_rgba(255,255,255,0.18)]"
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
+      {/* Marca: logo grande com a tagline embaixo */}
+      <a href="#home" className="flex items-center gap-0 group">
+        <div className="flex flex-col items-start leading-none">
+          <Image
+            src="/images/pearson.png"
+            alt="Pearson — FINAME & BNDES Specialists"
+            width={220}
+            height={56}
+            priority
+            className="h-14 md:h-16 w-auto object-contain select-none"
+          />
 
-            />
-          </div>
-          {/* texto opcional (esconde em telas muito pequenas) */}
-          <div className="leading-tight hidden sm:block">
-            <span className="block font-extrabold tracking-tight">Pearson Consultoria</span>
-            <span className="block text-xs text-slate-300">FINAME & BNDES Specialists</span>
-          </div>
-        </a>
+        </div>
+      </a>
 
         {/* Navegação */}
-        <nav className="hidden md:flex items-center gap-6 text-sm">
+        <nav className="hidden md:flex items-center gap-9 text-sm">
           <a href="#about" className="hover:text-white/90">{t(lang, 'nav.about')}</a>
           <a href="#finame" className="hover:text-white/90">{t(lang, 'nav.finame')}</a>
           <a href="#services" className="hover:text-white/90">{t(lang, 'nav.services')}</a>
-          <a href="#cases" className="hover:text-white/90">{t(lang, 'nav.cases')}</a>
           <a href="#contact" className="hover:text-white/90">{t(lang, 'nav.contact')}</a>
         </nav>
 
@@ -149,6 +147,8 @@ export default function Header() {
           </a>
         </div>
       </div>
+
+      {/* prefetch do geojson (se usar o mapa) */}
       <link rel="preload" as="fetch" href="/maps/br-states.json" crossOrigin="anonymous" />
     </header>
   );

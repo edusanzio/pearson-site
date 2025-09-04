@@ -1,16 +1,15 @@
-'use client';
 import Hero from '@/components/Hero';
-import { About, Finame, Services, Cases, Footprint, Contact } from '@/components/Sections';
+import { About, Finame, Services, Footprint, Contact } from '@/components/Sections';
 import TeamCarousel from '@/components/TeamCarousel';
+import FeaturedLogos from '@/components/FeaturedLogos';
 
 export default function Page(){
   return (<main>
     <Hero />
     <About />
-    <TeamCarousel title="Nossa equipe" />
+    <TeamCarousel />
     <Finame />
     <Services />
-    <Cases />
     <Footprint />
     <Contact />
   </main>);

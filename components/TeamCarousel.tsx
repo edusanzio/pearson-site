@@ -1,30 +1,12 @@
 'use client';
 import Image from 'next/image';
 import { TEAM, type Member } from '@/lib/team';
-import { useRef } from 'react';
 
 type Props = {
   members?: Member[];
-  title?: string;
-  autoPlay?: boolean;
-  speedMs?: number;
 };
 
-export default function TeamCarousel({
-  members = TEAM,
-  title = 'Nossa equipe',
-  autoPlay = false,
-  speedMs = 3500,
-}: Props) {
-  const trackRef = useRef<HTMLDivElement>(null);
-
-  const scroll = (dir: -1 | 1) => {
-    const el = trackRef.current;
-    if (!el) return;
-    const step = Math.min(520, el.clientWidth * 0.85);
-    el.scrollBy({ left: dir * step, behavior: 'smooth' });
-  };
-
+export default function TeamCarousel({ members = TEAM }: Props) {
   const splitTwoLines = (str: string) => {
     const parts = str.trim().split(/\s+/);
     if (parts.length <= 1) return [str, ''];
@@ -32,31 +14,11 @@ export default function TeamCarousel({
   };
 
   return (
-    <section id="team" className="py-16">
+    // cola no About acima
+    <section id="team" className="pt-2 pb-10 md:pt-0 -mt-2 md:-mt-2">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="mb-6 flex items-center justify-between">
-          <h2 className="text-2xl md:text-3xl font-extrabold">{title}</h2>
-          <div className="flex gap-2">
-            <button
-              onClick={() => scroll(-1)}
-              className="rounded-lg bg-white/10 ring-1 ring-white/15 px-3 py-1.5 text-sm hover:bg-white/15"
-              aria-label="Anterior"
-            >
-              ‹
-            </button>
-            <button
-              onClick={() => scroll(1)}
-              className="rounded-lg bg-white/10 ring-1 ring-white/15 px-3 py-1.5 text-sm hover:bg-white/15"
-              aria-label="Próximo"
-            >
-              ›
-            </button>
-          </div>
-        </div>
-
         <div
-          ref={trackRef}
-          aria-label="Carrossel da equipe"
+          aria-label="Equipe Pearson"
           className="
             relative flex overflow-x-auto snap-x snap-mandatory scrollbar-none
             justify-center
@@ -81,7 +43,6 @@ export default function TeamCarousel({
                   group-hover:scale-[1.10]
                 "
               >
-                {/* imagem principal com fade curtinho na base */}
                 <Image
                   src={m.photo}
                   alt={m.name}
@@ -94,13 +55,11 @@ export default function TeamCarousel({
                       'linear-gradient(to bottom, black 0%, black 96%, transparent 100%)',
                     maskImage:
                       'linear-gradient(to bottom, black 0%, black 96%, transparent 100%)',
-                    // edge glow branco atrás do recorte (funciona bem com PNG)
                     filter:
-                      'drop-shadow(0 0 10px rgba(255,255,255,0.18)) drop-shadow(0 0 20px rgba(255,255,255,0.12))',
+                      'drop-shadow(0 0 12px rgba(255,255,255,0.22)) drop-shadow(0 0 26px rgba(255,255,255,0.14))',
                   }}
                 />
-
-                {/* cópia desfocada só na base (super leve) para matar a “linha” */}
+                {/* cópia desfocada só na base (super leve) */}
                 <Image
                   src={m.photo}
                   alt=""
@@ -121,11 +80,10 @@ export default function TeamCarousel({
                 />
               </div>
 
-              {/* intensifica o edge glow no hover */}
               <style jsx>{`
                 figure:hover .photo {
-                  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.26))
-                          drop-shadow(0 0 26px rgba(255, 255, 255, 0.18));
+                  filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.30))
+                          drop-shadow(0 0 36px rgba(255, 255, 255, 0.20));
                 }
               `}</style>
 

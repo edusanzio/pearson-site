@@ -63,14 +63,10 @@ export default function Hero(){
           </div>
           <div className="text-sm text-slate-300">{t(lang,'hero.stat2')}</div>
         </div>
-
-        
+      
       </div>
-        <div className="mt-10">
-          <ClientsCarousel clients={CLIENTS} compact featuredOnly />
-        </div>
-        
-      </div>
+    </div>
     </section>
+    
   )
 }
