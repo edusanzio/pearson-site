@@ -9,7 +9,6 @@ export default async function FeaturedLogos() {
           theme="light"
           hideHeader
           shuffle
-          wheelMode="off"   // <<< roda desativada (só arrastar e botões)
         />
       </div>
     </section>

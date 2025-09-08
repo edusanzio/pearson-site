@@ -9,7 +9,8 @@ export default async function ClientsCarouselFS({
   shuffle = true,
   hideHeader,
   theme,
-  wheelMode,                // NOVO
+  autoScroll,
+  autoScrollPxPerSec,
 }: {
   variant?: 'featured' | 'general';
   title?: string;
@@ -17,11 +18,11 @@ export default async function ClientsCarouselFS({
   shuffle?: boolean;
   hideHeader?: boolean;
   theme?: 'dark' | 'light';
-  wheelMode?: 'off' | 'paged' | 'free'; // NOVO
+  autoScroll?: boolean;
+  autoScrollPxPerSec?: number;
 }) {
   const featured = await getFeaturedByLang();
   const general = await getGeneral();
-
   const logosFS = { featured, general };
   const isFeatured = variant === 'featured';
 
@@ -34,7 +35,8 @@ export default async function ClientsCarouselFS({
       shuffle={shuffle}
       hideHeader={hideHeader}
       theme={theme}
-      wheelMode={wheelMode}     // NOVO
+      autoScroll={autoScroll}
+      autoScrollPxPerSec={autoScrollPxPerSec}
     />
   );
 }
