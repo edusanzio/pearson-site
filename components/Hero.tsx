@@ -3,8 +3,7 @@ import { useEffect } from 'react';
 import { useLang } from './LangContext';
 import { t } from '@/lib/dict';
 import CountUp from '@/components/CountUp';
-import ClientsCarousel from '@/components/ClientsCarousel';
-import { CLIENTS } from '@/lib/clients';
+
 
 export default function Hero(){
   const {lang} = useLang();

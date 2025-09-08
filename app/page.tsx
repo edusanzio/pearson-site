@@ -1,22 +1,25 @@
-// page.tsx
 import Hero from '@/components/Hero';
 import { About, Finame, Services, Footprint, Contact } from '@/components/Sections';
 import TeamCarousel from '@/components/TeamCarousel';
-import FeaturedLogos from '@/components/FeaturedLogos';
-import ClientsCarouselFS from '@/components/ClientsCarouselFS'; // ⬅️ adicione isto
+import ClientsTickerFS from '@/components/ClientsTickerFS';
 
 export default function Page(){
   return (
     <main>
       <Hero />
-      <ClientsCarouselFS
-        variant="featured"
-        compact
-        hideHeader
-        theme="dark"
-        autoScroll
-        autoScrollPxPerSec={12}  // tente 10–14 para leitura confortável
-      />
+
+      {/* carrossel abaixo do hero */}
+      <div className="border-y border-white/10">
+        <div className="max-w-6xl mx-auto px-6 py-4">
+          <ClientsTickerFS
+            variant="featured"
+            pxPerSec={50}
+            theme="light"
+            shuffle
+            compact
+          />
+        </div>
+      </div>
 
       <About />
       <TeamCarousel />

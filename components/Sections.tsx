@@ -3,7 +3,6 @@ import dynamic from 'next/dynamic';
 import { t } from '@/lib/dict';
 import { useLang } from './LangContext';
 import { CLIENTS } from '@/lib/clients';
-import ClientsCarousel from './ClientsCarousel';
 import Image from 'next/image';
 
 // importa os componentes de forma dinâmica (sem SSR)
@@ -382,11 +381,7 @@ export function Footprint() {
 
         <div className="p-0 bg-transparent border-0 ring-0 shadow-none rounded-none">
           <BrazilClientsMap clients={CLIENTS} />
-        </div>
-        <div className="mt-10">
-          <ClientsCarousel clients={CLIENTS} />
-        </div>
-      
+        </div>    
       </div>
     </section>
   );

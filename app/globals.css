@@ -28,3 +28,18 @@ body { @apply bg-slate-950 text-slate-100; }
 /* esconder barra do carrossel (opcional) */
 .scrollbar-none::-webkit-scrollbar { display: none; }
 .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(-1 * var(--marquee-distance))); }
+}
+
+.marquee {
+  animation-name: marquee;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.marquee-paused {
+  animation-play-state: paused;
+}
