@@ -3,7 +3,21 @@ import { useEffect } from 'react';
 import { useLang } from './LangContext';
 import { t } from '@/lib/dict';
 import CountUp from '@/components/CountUp';
+import { computeWeeklyFixedIncrement  } from '@/lib/weeklyGrowth';
 
+// cresce +2 por semana, às segundas
+const clientes = computeWeeklyFixedIncrement({
+  base: 432,
+  startDate: '2025-09-01',
+  perWeek: 2,
+});
+
+// cresce +13 por semana, às segundas
+const produtos = computeWeeklyFixedIncrement({
+  base: 3866,
+  startDate: '2025-09-01',
+  perWeek: 13,
+});
 
 export default function Hero(){
   const {lang} = useLang();
@@ -43,18 +57,18 @@ export default function Hero(){
 
         <div className="glass rounded-2xl p-4">
           <div className="text-3xl font-extrabold">
-            <CountUp end={432} />
+            <CountUp end={clientes}  />
           </div>
           <div className="text-sm text-slate-300">{t(lang,'hero.stat1')}</div>
         </div>
 
-        {/* Novo card — posição 2 */}
         <div className="glass rounded-2xl p-4">
           <div className="text-3xl font-extrabold">
-            <CountUp end={3867} />
+            <CountUp end={produtos} />
           </div>
           <div className="text-sm text-slate-300">{t(lang,'hero.stat4')}</div>
         </div>
+
 
         <div className="glass rounded-2xl p-4">
           <div className="text-3xl font-extrabold">
@@ -62,6 +76,7 @@ export default function Hero(){
           </div>
           <div className="text-sm text-slate-300">{t(lang,'hero.stat2')}</div>
         </div>
+        
       
       </div>
     </div>
