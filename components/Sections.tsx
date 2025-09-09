@@ -4,6 +4,7 @@ import { t } from '@/lib/dict';
 import { useLang } from './LangContext';
 import { CLIENTS } from '@/lib/clients';
 import Image from 'next/image';
+import { useState } from 'react';
 
 // importa os componentes de forma dinâmica (sem SSR)
 const BrazilClientsMap = dynamic(() => import('./BrazilClientsMap'), { ssr: false });
@@ -373,10 +374,10 @@ export function Footprint() {
     <section id="footprint" className="py-24 bg-slate-900/60 border-y border-white/10">
       <div className="max-w-6xl mx-auto px-6">
         <h3 className="text-2xl md:text-3xl font-extrabold mb-2">
-          Onde atuamos
+          {t(lang,'footprint.title')}
         </h3>
         <p className="text-slate-300 mb-6">
-          Cidades com clientes Pearson — passe o mouse para ver a empresa e o que fabrica.
+          {t(lang,'footprint.lead')}
         </p>
 
         <div className="p-0 bg-transparent border-0 ring-0 shadow-none rounded-none">
@@ -387,19 +388,48 @@ export function Footprint() {
   );
 }
 
-export function Contact(){
-  const {lang}=useLang();
-  function openMailer(e:React.FormEvent){
+export function Contact() {
+  const { lang } = useLang();
+  const [status, setStatus] = useState<'idle' | 'sending' | 'ok' | 'error'>('idle');
+
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    const form = e.target as HTMLFormElement;
-    const n = (form.querySelector('#fName') as HTMLInputElement).value.trim();
-    const c = (form.querySelector('#fCompany') as HTMLInputElement).value.trim();
+    const form = e.currentTarget as HTMLFormElement;
+
+    const n  = (form.querySelector('#fName') as HTMLInputElement).value.trim();
+    const c  = (form.querySelector('#fCompany') as HTMLInputElement).value.trim();
+    const ph = (form.querySelector('#fPhone') as HTMLInputElement).value.trim();   // 👈 novo
     const em = (form.querySelector('#fEmail') as HTMLInputElement).value.trim();
-    const m = (form.querySelector('#fMsg') as HTMLTextAreaElement).value.trim();
-    const subject = encodeURIComponent('Projeto FINAME — ' + c);
-    const body = encodeURIComponent(`Nome: ${n}\nEmpresa: ${c}\nE-mail: ${em}\n\nMensagem:\n${m}`);
-    window.location.href = `mailto:contato@pearsonconsultoria.com.br?subject=${subject}&body=${body}`;
+    const m  = (form.querySelector('#fMsg') as HTMLTextAreaElement).value.trim();
+    const hp = (form.querySelector('#fWebsite') as HTMLInputElement)?.value || '';
+
+    if (!n || !c || !em || !m) return;
+
+    setStatus('sending');
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: n,
+          company: c,
+          phone: ph,             
+          email: em,
+          message: m,
+          locale: lang,
+          hp,
+        }),
+      });
+
+      if (!res.ok) throw new Error(await res.text());
+      setStatus('ok');
+      form.reset();
+    } catch {
+      setStatus('error');
+      // (se deixou o fallback mailto, pode incluir o phone no body também)
+    }
   }
+
   return (
     <section id="contact" className="py-24">
       <div className="max-w-6xl mx-auto px-6">
@@ -417,29 +447,68 @@ export function Contact(){
               <a href="mailto:contato@pearsonconsultoria.com.br?subject=Projeto%20FINAME%20-%20Pearson%20Consultoria" className="rounded-2xl bg-white/10 ring-1 ring-white/20 px-5 py-3 font-medium hover:bg-white/15">{t(lang,'contact.email')}</a>
             </div>
           </div>
-          <form onSubmit={openMailer} className="fade-up rounded-3xl card p-6">
+
+          {/* FORM */}
+          <form onSubmit={handleSubmit} className="fade-up rounded-3xl card p-6">
             <h3 className="text-xl font-bold">{t(lang,'contact.form.title')}</h3>
             <div className="mt-4 grid gap-4">
+              {/* honeypot anti-bot (fica invisível) */}
+              <input id="fWebsite" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
+
               <label className="block">
                 <span className="text-sm text-slate-300">{t(lang,'contact.form.name')}</span>
                 <input id="fName" required className="mt-1 w-full rounded-xl bg-white/10 ring-1 ring-white/20 px-3 py-2" />
               </label>
+
               <label className="block">
                 <span className="text-sm text-slate-300">{t(lang,'contact.form.company')}</span>
                 <input id="fCompany" required className="mt-1 w-full rounded-xl bg-white/10 ring-1 ring-white/20 px-3 py-2" />
               </label>
+
+              {/* 👇 NOVO: Telefone de contato */}
+              <label className="block">
+                <span className="text-sm text-slate-300">{t(lang,'contact.form.phone')}</span>
+                <input
+                  id="fPhone"
+                  type="tel"
+                  inputMode="tel"
+                  autoComplete="tel"
+                  placeholder="+55 21 99999-9999"
+                  className="mt-1 w-full rounded-xl bg-white/10 ring-1 ring-white/20 px-3 py-2"
+                />
+              </label>
+
               <label className="block">
                 <span className="text-sm text-slate-300">{t(lang,'contact.form.email')}</span>
                 <input id="fEmail" type="email" required className="mt-1 w-full rounded-xl bg-white/10 ring-1 ring-white/20 px-3 py-2" />
               </label>
+
               <label className="block">
                 <span className="text-sm text-slate-300">{t(lang,'contact.form.message')}</span>
-                <textarea id="fMsg" rows={4} className="mt-1 w-full rounded-xl bg-white/10 ring-1 ring-white/20 px-3 py-2" />
+                <textarea id="fMsg" rows={4} required className="mt-1 w-full rounded-xl bg-white/10 ring-1 ring-white/20 px-3 py-2" />
               </label>
-              <button className="rounded-2xl bg-pearson-green text-slate-900 font-semibold px-5 py-3 shadow-soft hover:bg-pearson-green-dark">{t(lang,'contact.form.cta')}</button>
+
+              <button
+                className="rounded-2xl bg-pearson-green text-slate-900 font-semibold px-5 py-3 shadow-soft hover:bg-pearson-green-dark disabled:opacity-60 disabled:cursor-not-allowed"
+                disabled={status === 'sending'}
+              >
+                {status === 'sending' ? t(lang,'contact.sending') ?? 'Enviando…' : t(lang,'contact.form.cta')}
+              </button>
+
+              {status === 'ok' && (
+                <p className="text-emerald-400 text-sm">
+                  {t(lang,'contact.sent') ?? 'Mensagem enviada com sucesso!'}
+                </p>
+              )}
+              {status === 'error' && (
+                <p className="text-rose-400 text-sm">
+                  {t(lang,'contact.error') ?? 'Falha no envio, abrimos seu e-mail para você enviar manualmente.'}
+                </p>
+              )}
             </div>
             <p className="mt-3 text-xs text-slate-400">{t(lang,'contact.disclaimer')}</p>
           </form>
+
         </div>
       </div>
     </section>
