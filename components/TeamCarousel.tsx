@@ -1,12 +1,25 @@
 'use client';
 import Image from 'next/image';
-import { TEAM, type Member } from '@/lib/team';
+import { TEAM, type Member, getTeam } from '@/lib/team';
+import { useLang } from './LangContext';
 
 type Props = {
   members?: Member[];
 };
 
 export default function TeamCarousel({ members = TEAM }: Props) {
+  const { lang } = useLang();
+
+  // Usa getTeam(lang) como dicionário por teamKey para localizar as roles
+  const localizedMembers: Member[] = (() => {
+    const sample = getTeam(lang);
+    const roleByKey = new Map(sample.map((m) => [m.teamKey, m.role]));
+    return (members || TEAM).map((m) => ({
+      ...m,
+      role: roleByKey.get(m.teamKey) ?? m.role,
+    }));
+  })();
+
   const splitTwoLines = (str: string) => {
     const parts = str.trim().split(/\s+/);
     if (parts.length <= 1) return [str, ''];
@@ -27,7 +40,7 @@ export default function TeamCarousel({ members = TEAM }: Props) {
             [&>*:not(:last-child)]:-mr-4  md:[&>*:not(:last-child)]:-mr-6
           "
         >
-          {members.map((m) => (
+          {localizedMembers.map((m) => (
             <figure
               key={m.name}
               className="
@@ -82,8 +95,8 @@ export default function TeamCarousel({ members = TEAM }: Props) {
 
               <style jsx>{`
                 figure:hover .photo {
-                  filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.30))
-                          drop-shadow(0 0 36px rgba(255, 255, 255, 0.20));
+                  filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.3))
+                    drop-shadow(0 0 36px rgba(255, 255, 255, 0.2));
                 }
               `}</style>
 
