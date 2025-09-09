@@ -73,7 +73,7 @@ export default async function ClientsTickerFS({
         <div className={inner}>
           <ClientsTickerPairClient
             logosFS={{ featured, general }}
-            featuredOnly={variant === 'featured'}
+            
             theme="light"
             compact={compact}
             bare={bare}

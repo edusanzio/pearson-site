@@ -15,9 +15,9 @@ export default function Page(){
         compact={false}              // logos maiores (ex.: h-12). Se true, usa tamanhos menores (h-8/h-10)
         bare={true}                  // exibe só as imagens (sem cartões/caixinhas ao redor), com espaçamento lateral
         order="alpha"                // ordena alfabeticamente (pelo nome do arquivo). Use "as-is" para manter a ordem do FS
-        pxPerSecTop={10}             // velocidade da linha de cima em pixels/segundo (menor = mais devagar)
-        pxPerSecBottom={11}          // velocidade da linha de baixo em pixels/segundo (pode ser diferente da de cima)
-        gapY={8}                     // espaço vertical entre as duas linhas (em pixels)
+        pxPerSecTop={15}             // velocidade da linha de cima em pixels/segundo (menor = mais devagar)
+        pxPerSecBottom={18}          // velocidade da linha de baixo em pixels/segundo (pode ser diferente da de cima)
+        gapY={2}                     // espaço vertical entre as duas linhas (em pixels)
         fullBleed={true}
       />
 

@@ -43,3 +43,10 @@ body { @apply bg-slate-950 text-slate-100; }
 .marquee-paused {
   animation-play-state: paused;
 }
+
+/* força uso de fonte de emoji em qualquer plataforma */
+.flag-emoji{
+  font-family: "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",
+               "Twemoji Mozilla","Segoe UI Symbol", system-ui, sans-serif;
+  font-variant-emoji: emoji; /* ok ignorar onde não existir */
+}
