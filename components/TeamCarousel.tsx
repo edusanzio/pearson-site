@@ -34,11 +34,13 @@ export default function TeamCarousel({ members = TEAM }: Props) {
           aria-label="Equipe Pearson"
           className="
             relative flex overflow-x-auto snap-x snap-mandatory scrollbar-none
-            justify-center
-            pl-2 pr-2 gap-2
-            [&>*:not(:first-child)]:-ml-4 md:[&>*:not(:first-child)]:-ml-6
-            [&>*:not(:last-child)]:-mr-4  md:[&>*:not(:last-child)]:-mr-6
+            touch-pan-x                     /* permite pan horizontal no mobile */
+            justify-start md:justify-center /* começa à esquerda no mobile */
+            pl-4 pr-4 gap-0                 /* espaçamento real no mobile */
+            md:[&>*:not(:first-child)]:-ml-6
+            md:[&>*:not(:last-child)]:-mr-6 /* mantém o overlap só no md+ */
           "
+          style={{ WebkitOverflowScrolling: 'touch' }}  // momentum scroll no iOS
         >
           {localizedMembers.map((m) => (
             <figure

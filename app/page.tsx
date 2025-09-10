@@ -10,7 +10,7 @@ export default function Page(){
       <ClientsTickerFS
         variant="featured"
         overlay
-        overlayClass="-mt-[100px] md:-mt-[120px] lg:-mt-[120px] z-30"
+        overlayClass="-mt-[70px] md:-mt-[120px] lg:-mt-[120px] z-30"
         whiteBg
         compact={false}
         bare
