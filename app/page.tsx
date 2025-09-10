@@ -8,17 +8,17 @@ export default function Page(){
     <main>
       <Hero />
       <ClientsTickerFS
-        variant="featured"           // usa os logos de destaque do FS (public/logos/destaque/{br|eng|ch}) conforme o idioma
-        overlay={true}               // ativa a “sobreposição” do bloco sobre o Hero (wrap com z-10 e margem negativa)
-        overlayClass="-mt-8 md:-mt-12" // classes Tailwind que sobem o bloco: -mt-8 no mobile e -mt-12 em telas md+
-        whiteBg={true}               // coloca uma faixa com fundo branco, borda/sombra atrás das duas linhas de logos
-        compact={false}              // logos maiores (ex.: h-12). Se true, usa tamanhos menores (h-8/h-10)
-        bare={true}                  // exibe só as imagens (sem cartões/caixinhas ao redor), com espaçamento lateral
-        order="alpha"                // ordena alfabeticamente (pelo nome do arquivo). Use "as-is" para manter a ordem do FS
-        pxPerSecTop={15}             // velocidade da linha de cima em pixels/segundo (menor = mais devagar)
-        pxPerSecBottom={18}          // velocidade da linha de baixo em pixels/segundo (pode ser diferente da de cima)
-        gapY={2}                     // espaço vertical entre as duas linhas (em pixels)
-        fullBleed={true}
+        variant="featured"
+        overlay
+        overlayClass="-mt-[100px] md:-mt-[120px] lg:-mt-[120px] z-30"
+        whiteBg
+        compact={false}
+        bare
+        order="alpha"
+        pxPerSecTop={15}
+        pxPerSecBottom={18}
+        gapY={2}
+        fullBleed
       />
 
       <About />

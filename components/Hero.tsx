@@ -31,10 +31,28 @@ export default function Hero(){
 
   return (
     <section id="home" className="relative min-h-[86vh] grid place-items-center overflow-hidden">
-      <div className="absolute inset-0 overflow-hidden -z-10 hero-bg">
-        <iframe className="opacity-70" src="https://www.youtube.com/embed/zv9ivnKmb5c?autoplay=1&mute=1&controls=0&loop=1&playlist=zv9ivnKmb5c&modestbranding=1&playsinline=1"
-          title="Pearson Consultoria — video hero" allow="autoplay; encrypted-media; picture-in-picture" />
-      </div>
+    <div className="absolute inset-0 -z-10 overflow-hidden">
+      <iframe
+        title="Pearson Consultoria — video hero"
+        src="https://www.youtube.com/embed/zv9ivnKmb5c?autoplay=1&mute=1&controls=0&loop=1&playlist=zv9ivnKmb5c&modestbranding=1&playsinline=1"
+        allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          // cover 16:9 sem depender do Tailwind:
+          width: '177.78vh',     // 100vh * 16/9
+          height: '100vh',
+          minWidth: '100vw',     // garante cobertura quando a tela é mais larga
+          minHeight: '56.25vw',  // 100vw * 9/16 — garante cobertura quando é mais alta
+          pointerEvents: 'none',
+          opacity: 0.7,
+          border: 'none',
+          display: 'block',
+        }}
+      />
+    </div>
       <div className="absolute inset-0 bg-gradient-to-b from-slate-950/50 via-slate-950/75 to-slate-950" />
       <div className="relative z-10 max-w-5xl mx-auto px-6 py-24 text-center">
         
@@ -72,7 +90,7 @@ export default function Hero(){
 
         <div className="glass rounded-2xl p-4">
           <div className="text-3xl font-extrabold">
-            <CountUp end={10} />
+            <CountUp end={10} suffix='+' />
           </div>
           <div className="text-sm text-slate-300">{t(lang,'hero.stat2')}</div>
         </div>
